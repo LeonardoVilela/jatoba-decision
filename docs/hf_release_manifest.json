@@ -106,12 +106,13 @@
   "install": "pip install \"git+https://github.com/LeonardoVilela/jatoba-decision.git@release/jatoba-v1.1\" (fresh Python 3.12 venv)",
   "hf_cache": "empty, no token",
   "snippet": "the Usage snippet of the model card, verbatim",
-  "result": "PASS",
+  "result": "PASS (Hugging Face side anonymous; GitHub install used local git credentials)",
   "downloaded_revision": "145f99385cc4ce842013e15fb4b1e5beebc1358a",
   "downloaded_safetensors_sha256_matches": true,
   "output": {
    "alarm_set": 0.9999999543397912,
    "weather_query": 4.5660208939076563e-08
-  }
+  },
+  "github_install_note": "At test time the GitHub repository was private: unauthenticated requests return 404, and the pip install succeeded through this machine's git credentials. The Hugging Face download used an empty cache and no token. Public users can run the snippet only after the GitHub repository is made public."
  }
 }

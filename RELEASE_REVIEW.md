@@ -89,7 +89,8 @@ No upstream records are distributed. The candidate dictionary quotes short rubri
   - All 177 tensors are bitwise-identical to their sources.
   - The public load path matches the research path exactly (Δ 0.0).
   - Against the frozen v1.1 logits, on 320 decisions: max Δ 4.8e-5, 0 top-1 changes.
-- **Clean test:** PASS. A fresh venv installed from GitHub, then ran the model card snippet with an empty Hugging Face cache and no token. The downloaded file hash matches. Manifest: [`docs/hf_release_manifest.json`](docs/hf_release_manifest.json).
+- **Clean test:** PASS. A fresh venv installed from GitHub, then ran the model card snippet with an empty Hugging Face cache and no token. The downloaded file hash matches.
+  - **Caveat:** the GitHub repository is still **private**, so the install used this machine's git credentials. Public users cannot `pip install` it until the repository is made public. Manifest: [`docs/hf_release_manifest.json`](docs/hf_release_manifest.json).
 - **Security:**
   - The Hugging Face token was read from the local `.env` inside the upload process only; it was never printed or written.
   - `.env` is git-ignored and absent from every commit.
@@ -112,6 +113,7 @@ No upstream records are distributed. The candidate dictionary quotes short rubri
 
 ## Before announcing publicly
 
+- **Required:** make the GitHub repository public. It returns 404 to anonymous visitors, so the README and model card links, and the `pip install` line on Hugging Face, fail for readers.
 - Confirm that the CI run on GitHub is green.
 - Decide whether `main` should receive the release branch. This review did not merge, so the GitHub landing page still shows `main`.
 - Optionally send the ASSIN 2 permission request and ask the HateBR, ToLD-Br and MASSIVE pt-BR authors to confirm their terms.

@@ -1,0 +1,948 @@
+{
+ "version": "general-candidates-v1",
+ "status": "FROZEN (Gate H PASS, 2026-09-24)",
+ "rendering_rule": "Model sees candidate `text` verbatim between [CLS]/[SEP] (nordecision.general_mixture.GeneralCollator). `identity` is the option label used for targets, permutation identity and metrics.",
+ "limits": {
+  "max_option_tokens_default": 96,
+  "max_option_tokens_community_alignment": 384,
+  "max_context_tokens_training": 256,
+  "max_context_tokens_heldout": 2048
+ },
+ "tasks": {
+  "massive_intent": {
+   "primitive": "CHOICE",
+   "status": "FROZEN (Gate H PASS; full 60-intent manual audit: 50 approved, 10 revised)",
+   "question": "Qual categoria melhor descreve o pedido do usuário?",
+   "provenance": "Official MASSIVE scenario_intent names (canonical integer ids = nordecision.data.adapters.massive.MASSIVE_INTENTS). MASSIVE/SLURP publish no natural-language intent definitions; pt-BR label/description written from the official name and checked against TRAIN utterances; label meaning unchanged.",
+   "approval": {
+    "approved_unchanged": 50,
+    "revised": [
+     "audio_volume_other",
+     "cooking_query",
+     "cooking_recipe",
+     "datetime_query",
+     "email_querycontact",
+     "email_sendemail",
+     "general_quirky",
+     "iot_hue_lightchange",
+     "takeaway_query",
+     "transport_query"
+    ],
+    "note": "Descriptions clarify the intended taxonomy; source gold labels are never relabeled (MASSIVE has intrinsically overlapping examples, e.g. cooking_query vs cooking_recipe, general_quirky)."
+   },
+   "candidates": [
+    {
+     "intent_id": 0,
+     "identity": "datetime_query",
+     "ptbr_label": "consultar data ou hora",
+     "ptbr_description": "perguntar a data, o dia/calendário ou a hora em um local, sem converter um horário entre fusos",
+     "text": "consultar data ou hora: perguntar a data, o dia/calendário ou a hora em um local, sem converter um horário entre fusos",
+     "reviewer_status": "REVISED",
+     "superseded_text": "consultar data ou hora: perguntar a data, o dia ou a hora atual, inclusive em outro lugar"
+    },
+    {
+     "intent_id": 1,
+     "identity": "iot_hue_lightchange",
+     "ptbr_label": "configurar iluminação",
+     "ptbr_description": "definir cor, tonalidade, ambiente ou nível específico das luzes inteligentes, sem apenas ligar, desligar, aumentar ou diminuir",
+     "text": "configurar iluminação: definir cor, tonalidade, ambiente ou nível específico das luzes inteligentes, sem apenas ligar, desligar, aumentar ou diminuir",
+     "reviewer_status": "REVISED",
+     "superseded_text": "ajustar a iluminação: mudar a cor, a tonalidade ou o ajuste das luzes inteligentes"
+    },
+    {
+     "intent_id": 2,
+     "identity": "transport_ticket",
+     "ptbr_label": "comprar passagem",
+     "ptbr_description": "procurar ou reservar passagem de trem, avião, ônibus ou outro transporte",
+     "text": "comprar passagem: procurar ou reservar passagem de trem, avião, ônibus ou outro transporte",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 3,
+     "identity": "takeaway_query",
+     "ptbr_label": "consultar entrega ou retirada de comida",
+     "ptbr_description": "consultar opções, disponibilidade, recomendações ou status/prazo de comida para entrega ou retirada, sem efetuar o pedido",
+     "text": "consultar entrega ou retirada de comida: consultar opções, disponibilidade, recomendações ou status/prazo de comida para entrega ou retirada, sem efetuar o pedido",
+     "reviewer_status": "REVISED",
+     "superseded_text": "consultar pedido de comida: perguntar sobre pedido de comida para entrega ou retirada, como status, prazo ou se o restaurante oferece o serviço"
+    },
+    {
+     "intent_id": 4,
+     "identity": "qa_stock",
+     "ptbr_label": "consultar bolsa de valores",
+     "ptbr_description": "perguntar sobre cotações de ações ou novidades do mercado financeiro",
+     "text": "consultar bolsa de valores: perguntar sobre cotações de ações ou novidades do mercado financeiro",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 5,
+     "identity": "general_greet",
+     "ptbr_label": "cumprimentar",
+     "ptbr_description": "saudação ou conversa de cortesia com o assistente",
+     "text": "cumprimentar: saudação ou conversa de cortesia com o assistente",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 6,
+     "identity": "recommendation_events",
+     "ptbr_label": "sugerir eventos",
+     "ptbr_description": "pedir sugestões de eventos ou do que está acontecendo por perto",
+     "text": "sugerir eventos: pedir sugestões de eventos ou do que está acontecendo por perto",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 7,
+     "identity": "music_dislikeness",
+     "ptbr_label": "não gostar da música",
+     "ptbr_description": "dizer que não gosta da música que está tocando ou de uma música",
+     "text": "não gostar da música: dizer que não gosta da música que está tocando ou de uma música",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 8,
+     "identity": "iot_wemo_off",
+     "ptbr_label": "desligar tomada inteligente",
+     "ptbr_description": "desligar uma tomada inteligente",
+     "text": "desligar tomada inteligente: desligar uma tomada inteligente",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 9,
+     "identity": "cooking_recipe",
+     "ptbr_label": "pedir receita específica",
+     "ptbr_description": "pedir ingredientes, tempo ou instruções para preparar um prato específico",
+     "text": "pedir receita específica: pedir ingredientes, tempo ou instruções para preparar um prato específico",
+     "reviewer_status": "REVISED",
+     "superseded_text": "pedir receita: pedir uma receita, os ingredientes ou o modo de preparo de um prato"
+    },
+    {
+     "intent_id": 10,
+     "identity": "qa_currency",
+     "ptbr_label": "consultar câmbio",
+     "ptbr_description": "perguntar a cotação de uma moeda ou converter valores entre moedas",
+     "text": "consultar câmbio: perguntar a cotação de uma moeda ou converter valores entre moedas",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 11,
+     "identity": "transport_traffic",
+     "ptbr_label": "consultar trânsito",
+     "ptbr_description": "perguntar como está o trânsito em um trajeto ou região",
+     "text": "consultar trânsito: perguntar como está o trânsito em um trajeto ou região",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 12,
+     "identity": "general_quirky",
+     "ptbr_label": "conversa ou pedido incomum",
+     "ptbr_description": "interação geral, excêntrica ou não coberta pelas funções específicas do assistente",
+     "text": "conversa ou pedido incomum: interação geral, excêntrica ou não coberta pelas funções específicas do assistente",
+     "reviewer_status": "REVISED",
+     "superseded_text": "conversa aleatória: comentário ou pergunta solta, fora dos demais assuntos, sem pedido de ação específico"
+    },
+    {
+     "intent_id": 13,
+     "identity": "weather_query",
+     "ptbr_label": "consultar o tempo",
+     "ptbr_description": "perguntar a previsão do tempo, a temperatura ou as condições climáticas",
+     "text": "consultar o tempo: perguntar a previsão do tempo, a temperatura ou as condições climáticas",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 14,
+     "identity": "audio_volume_up",
+     "ptbr_label": "aumentar o volume",
+     "ptbr_description": "pedir para aumentar o volume ou falar mais alto",
+     "text": "aumentar o volume: pedir para aumentar o volume ou falar mais alto",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 15,
+     "identity": "email_addcontact",
+     "ptbr_label": "adicionar contato de e-mail",
+     "ptbr_description": "adicionar um contato ou um endereço de e-mail à agenda",
+     "text": "adicionar contato de e-mail: adicionar um contato ou um endereço de e-mail à agenda",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 16,
+     "identity": "takeaway_order",
+     "ptbr_label": "pedir comida",
+     "ptbr_description": "fazer um pedido de comida para entrega ou retirada",
+     "text": "pedir comida: fazer um pedido de comida para entrega ou retirada",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 17,
+     "identity": "email_querycontact",
+     "ptbr_label": "consultar contato",
+     "ptbr_description": "localizar ou consultar dados de uma pessoa na lista de contatos, como telefone ou e-mail",
+     "text": "consultar contato: localizar ou consultar dados de uma pessoa na lista de contatos, como telefone ou e-mail",
+     "reviewer_status": "REVISED",
+     "superseded_text": "consultar dados de contato: perguntar dados de um contato, como telefone, e-mail ou cargo"
+    },
+    {
+     "intent_id": 18,
+     "identity": "iot_hue_lightup",
+     "ptbr_label": "aumentar a luminosidade",
+     "ptbr_description": "deixar as luzes inteligentes mais fortes",
+     "text": "aumentar a luminosidade: deixar as luzes inteligentes mais fortes",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 19,
+     "identity": "recommendation_locations",
+     "ptbr_label": "sugerir lugares",
+     "ptbr_description": "pedir sugestões de lugares, como restaurantes, lojas ou pontos turísticos",
+     "text": "sugerir lugares: pedir sugestões de lugares, como restaurantes, lojas ou pontos turísticos",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 20,
+     "identity": "play_audiobook",
+     "ptbr_label": "tocar audiolivro",
+     "ptbr_description": "iniciar, retomar ou avançar um audiolivro",
+     "text": "tocar audiolivro: iniciar, retomar ou avançar um audiolivro",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 21,
+     "identity": "lists_createoradd",
+     "ptbr_label": "criar lista ou adicionar item",
+     "ptbr_description": "criar uma lista ou incluir um item em uma lista",
+     "text": "criar lista ou adicionar item: criar uma lista ou incluir um item em uma lista",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 22,
+     "identity": "news_query",
+     "ptbr_label": "consultar notícias",
+     "ptbr_description": "pedir notícias ou atualizações sobre um assunto",
+     "text": "consultar notícias: pedir notícias ou atualizações sobre um assunto",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 23,
+     "identity": "alarm_query",
+     "ptbr_label": "consultar alarmes",
+     "ptbr_description": "perguntar quais alarmes estão definidos",
+     "text": "consultar alarmes: perguntar quais alarmes estão definidos",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 24,
+     "identity": "iot_wemo_on",
+     "ptbr_label": "ligar tomada inteligente",
+     "ptbr_description": "ligar uma tomada inteligente",
+     "text": "ligar tomada inteligente: ligar uma tomada inteligente",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 25,
+     "identity": "general_joke",
+     "ptbr_label": "contar piada",
+     "ptbr_description": "pedir ao assistente que conte uma piada",
+     "text": "contar piada: pedir ao assistente que conte uma piada",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 26,
+     "identity": "qa_definition",
+     "ptbr_label": "pedir definição",
+     "ptbr_description": "perguntar o significado ou a definição de uma palavra ou conceito",
+     "text": "pedir definição: perguntar o significado ou a definição de uma palavra ou conceito",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 27,
+     "identity": "social_query",
+     "ptbr_label": "consultar redes sociais",
+     "ptbr_description": "perguntar sobre novidades, tendências ou atividade nas redes sociais",
+     "text": "consultar redes sociais: perguntar sobre novidades, tendências ou atividade nas redes sociais",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 28,
+     "identity": "music_settings",
+     "ptbr_label": "configurar reprodução de música",
+     "ptbr_description": "mudar o modo de reprodução de música, como repetir, modo aleatório ou outras configurações",
+     "text": "configurar reprodução de música: mudar o modo de reprodução de música, como repetir, modo aleatório ou outras configurações",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 29,
+     "identity": "audio_volume_other",
+     "ptbr_label": "ajustar volume",
+     "ptbr_description": "alterar ou definir o volume de forma genérica, sem especificar aumentar, diminuir ou silenciar",
+     "text": "ajustar volume: alterar ou definir o volume de forma genérica, sem especificar aumentar, diminuir ou silenciar",
+     "reviewer_status": "REVISED",
+     "superseded_text": "outros ajustes de som: ajustar ou consultar o volume e o som, exceto aumentar, diminuir ou silenciar"
+    },
+    {
+     "intent_id": 30,
+     "identity": "calendar_remove",
+     "ptbr_label": "remover evento da agenda",
+     "ptbr_description": "apagar ou cancelar um compromisso ou evento da agenda",
+     "text": "remover evento da agenda: apagar ou cancelar um compromisso ou evento da agenda",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 31,
+     "identity": "iot_hue_lightdim",
+     "ptbr_label": "diminuir a luminosidade",
+     "ptbr_description": "deixar as luzes inteligentes mais fracas",
+     "text": "diminuir a luminosidade: deixar as luzes inteligentes mais fracas",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 32,
+     "identity": "calendar_query",
+     "ptbr_label": "consultar agenda",
+     "ptbr_description": "perguntar sobre compromissos, reuniões ou lembretes marcados",
+     "text": "consultar agenda: perguntar sobre compromissos, reuniões ou lembretes marcados",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 33,
+     "identity": "email_sendemail",
+     "ptbr_label": "enviar e-mail ou mensagem direta",
+     "ptbr_description": "redigir, ditar ou enviar uma mensagem diretamente a um destinatário, sem publicar em rede social",
+     "text": "enviar e-mail ou mensagem direta: redigir, ditar ou enviar uma mensagem diretamente a um destinatário, sem publicar em rede social",
+     "reviewer_status": "REVISED",
+     "superseded_text": "enviar e-mail ou mensagem: escrever ou enviar um e-mail ou uma mensagem"
+    },
+    {
+     "intent_id": 34,
+     "identity": "iot_cleaning",
+     "ptbr_label": "acionar limpeza",
+     "ptbr_description": "ligar o robô aspirador ou iniciar a limpeza da casa",
+     "text": "acionar limpeza: ligar o robô aspirador ou iniciar a limpeza da casa",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 35,
+     "identity": "audio_volume_down",
+     "ptbr_label": "diminuir o volume",
+     "ptbr_description": "pedir para abaixar o volume",
+     "text": "diminuir o volume: pedir para abaixar o volume",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 36,
+     "identity": "play_radio",
+     "ptbr_label": "tocar rádio",
+     "ptbr_description": "tocar uma estação ou serviço de rádio",
+     "text": "tocar rádio: tocar uma estação ou serviço de rádio",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 37,
+     "identity": "cooking_query",
+     "ptbr_label": "tirar dúvida culinária",
+     "ptbr_description": "fazer pergunta geral sobre o que cozinhar, técnicas ou substituição de ingredientes, em vez de solicitar apenas uma receita específica",
+     "text": "tirar dúvida culinária: fazer pergunta geral sobre o que cozinhar, técnicas ou substituição de ingredientes, em vez de solicitar apenas uma receita específica",
+     "reviewer_status": "REVISED",
+     "superseded_text": "pergunta sobre culinária: perguntar o que cozinhar, como preparar algo ou como substituir um ingrediente"
+    },
+    {
+     "intent_id": 38,
+     "identity": "datetime_convert",
+     "ptbr_label": "converter fuso horário",
+     "ptbr_description": "converter um horário entre fusos ou perguntar a diferença de horas entre lugares",
+     "text": "converter fuso horário: converter um horário entre fusos ou perguntar a diferença de horas entre lugares",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 39,
+     "identity": "qa_maths",
+     "ptbr_label": "fazer um cálculo",
+     "ptbr_description": "pedir o resultado de uma conta matemática",
+     "text": "fazer um cálculo: pedir o resultado de uma conta matemática",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 40,
+     "identity": "iot_hue_lightoff",
+     "ptbr_label": "apagar as luzes",
+     "ptbr_description": "desligar as luzes inteligentes",
+     "text": "apagar as luzes: desligar as luzes inteligentes",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 41,
+     "identity": "iot_hue_lighton",
+     "ptbr_label": "acender as luzes",
+     "ptbr_description": "ligar as luzes inteligentes",
+     "text": "acender as luzes: ligar as luzes inteligentes",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 42,
+     "identity": "transport_query",
+     "ptbr_label": "consultar rota ou direções",
+     "ptbr_description": "pedir direções ou um caminho para chegar a um destino, sem tratar especificamente de trânsito, táxi ou compra de passagem",
+     "text": "consultar rota ou direções: pedir direções ou um caminho para chegar a um destino, sem tratar especificamente de trânsito, táxi ou compra de passagem",
+     "reviewer_status": "REVISED",
+     "superseded_text": "consultar rota ou transporte: pedir direções, rotas ou informações sobre transporte"
+    },
+    {
+     "intent_id": 43,
+     "identity": "music_likeness",
+     "ptbr_label": "gostar da música",
+     "ptbr_description": "dizer que gosta de uma música ou registrar uma preferência musical",
+     "text": "gostar da música: dizer que gosta de uma música ou registrar uma preferência musical",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 44,
+     "identity": "email_query",
+     "ptbr_label": "consultar e-mails",
+     "ptbr_description": "verificar a caixa de entrada ou perguntar sobre e-mails recebidos",
+     "text": "consultar e-mails: verificar a caixa de entrada ou perguntar sobre e-mails recebidos",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 45,
+     "identity": "play_music",
+     "ptbr_label": "tocar música",
+     "ptbr_description": "tocar uma música, um artista, um álbum ou uma playlist",
+     "text": "tocar música: tocar uma música, um artista, um álbum ou uma playlist",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 46,
+     "identity": "audio_volume_mute",
+     "ptbr_label": "silenciar",
+     "ptbr_description": "pedir para silenciar o som ou para o assistente parar de falar",
+     "text": "silenciar: pedir para silenciar o som ou para o assistente parar de falar",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 47,
+     "identity": "social_post",
+     "ptbr_label": "publicar em rede social",
+     "ptbr_description": "postar ou enviar algo em uma rede social",
+     "text": "publicar em rede social: postar ou enviar algo em uma rede social",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 48,
+     "identity": "alarm_set",
+     "ptbr_label": "criar alarme",
+     "ptbr_description": "definir um alarme para um horário",
+     "text": "criar alarme: definir um alarme para um horário",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 49,
+     "identity": "qa_factoid",
+     "ptbr_label": "pergunta factual",
+     "ptbr_description": "perguntar um fato de conhecimento geral",
+     "text": "pergunta factual: perguntar um fato de conhecimento geral",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 50,
+     "identity": "calendar_set",
+     "ptbr_label": "criar evento ou lembrete",
+     "ptbr_description": "marcar um compromisso ou criar um lembrete na agenda",
+     "text": "criar evento ou lembrete: marcar um compromisso ou criar um lembrete na agenda",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 51,
+     "identity": "play_game",
+     "ptbr_label": "jogar",
+     "ptbr_description": "iniciar ou jogar um jogo com o assistente",
+     "text": "jogar: iniciar ou jogar um jogo com o assistente",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 52,
+     "identity": "alarm_remove",
+     "ptbr_label": "remover alarme",
+     "ptbr_description": "cancelar ou apagar um alarme",
+     "text": "remover alarme: cancelar ou apagar um alarme",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 53,
+     "identity": "lists_remove",
+     "ptbr_label": "remover lista ou item",
+     "ptbr_description": "apagar uma lista ou tirar um item de uma lista",
+     "text": "remover lista ou item: apagar uma lista ou tirar um item de uma lista",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 54,
+     "identity": "transport_taxi",
+     "ptbr_label": "chamar táxi",
+     "ptbr_description": "pedir ou agendar um táxi ou carro por aplicativo",
+     "text": "chamar táxi: pedir ou agendar um táxi ou carro por aplicativo",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 55,
+     "identity": "recommendation_movies",
+     "ptbr_label": "sugerir filmes",
+     "ptbr_description": "pedir sugestões de filmes para assistir",
+     "text": "sugerir filmes: pedir sugestões de filmes para assistir",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 56,
+     "identity": "iot_coffee",
+     "ptbr_label": "fazer café",
+     "ptbr_description": "pedir para a cafeteira inteligente preparar café",
+     "text": "fazer café: pedir para a cafeteira inteligente preparar café",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 57,
+     "identity": "music_query",
+     "ptbr_label": "perguntar sobre a música",
+     "ptbr_description": "perguntar o nome, o artista ou o álbum de uma música",
+     "text": "perguntar sobre a música: perguntar o nome, o artista ou o álbum de uma música",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 58,
+     "identity": "play_podcasts",
+     "ptbr_label": "tocar podcast",
+     "ptbr_description": "tocar, retomar ou avançar um podcast",
+     "text": "tocar podcast: tocar, retomar ou avançar um podcast",
+     "reviewer_status": "APPROVED"
+    },
+    {
+     "intent_id": 59,
+     "identity": "lists_query",
+     "ptbr_label": "consultar lista",
+     "ptbr_description": "perguntar o que há em uma lista",
+     "text": "consultar lista: perguntar o que há em uma lista",
+     "reviewer_status": "APPROVED"
+    }
+   ]
+  },
+  "assin2_entailment": {
+   "primitive": "NOUL",
+   "status": "FROZEN (Gate H PASS; targeted QA20 validated)",
+   "question": "A hipótese decorre da premissa?",
+   "provenance": "ASSIN 2 annotation guidelines (Real, 2019): acarretamento vs não-acarretamento (neutral and contradiction both annotated as não-acarretamento). Non-entailment is NOT falsehood.",
+   "candidates": [
+    {
+     "identity": "false",
+     "text": "Não — a hipótese não é implicada pela premissa."
+    },
+    {
+     "identity": "true",
+     "text": "Sim — a hipótese é implicada pela premissa."
+    }
+   ]
+  },
+  "assin2_similarity": {
+   "primitive": "SCORE",
+   "status": "FROZEN (Gate H PASS; targeted QA20 validated)",
+   "question": "Qual é o nível de similaridade semântica entre premissa e hipótese?",
+   "provenance": "Official ASSIN 2 annotation guidelines (Real, 2019, 'Diretrizes gerais sobre o grau de similaridade'), wording kept verbatim; instructions PDF sha256 6e3028faa1e6723788f3a99973575f33d8f779e03829ef6e7d06091adbb3c3df.",
+   "target_mapping": "Unchanged: continuous gold s in [1,5] (mean of annotator scores) -> probability (ceil(s)-s) on level floor(s) and (s-floor(s)) on level ceil(s); integer s -> one-hot. Expected level == s, so the mapping matches an ordinal rubric with equally spaced anchors 1..5 (the official scale).",
+   "candidates": [
+    {
+     "identity": "1",
+     "level": 0,
+     "text": "similaridade 1 de 5: sentenças completamente diferentes, sobre diferentes temas"
+    },
+    {
+     "identity": "2",
+     "level": 1,
+     "text": "similaridade 2 de 5: sentenças não relacionadas, mas sobre o mesmo tema"
+    },
+    {
+     "identity": "3",
+     "level": 2,
+     "text": "similaridade 3 de 5: sentenças de certa forma relacionadas: podem descrever fatos diferentes, mas compartilham de alguns detalhes"
+    },
+    {
+     "identity": "4",
+     "level": 3,
+     "text": "similaridade 4 de 5: sentenças fortemente relacionadas, mas que diferem em alguns detalhes"
+    },
+    {
+     "identity": "5",
+     "level": 4,
+     "text": "similaridade 5 de 5: sentenças significam essencialmente a mesma coisa"
+    }
+   ]
+  },
+  "homophobia_detection": {
+   "primitive": "NOUL",
+   "status": "FROZEN_UNCHANGED (Gate H v1: PASS by both reviewers)",
+   "provenance": "Reproduces v1 collator rendering byte-for-byte (continuity with the Phase 4E initialization).",
+   "candidates": [
+    {
+     "identity": "false",
+     "text": "false: não, a afirmação é falsa. a propriedade não está presente"
+    },
+    {
+     "identity": "true",
+     "text": "true: sim, a afirmação é verdadeira. a propriedade está presente"
+    }
+   ]
+  },
+  "obscene_detection": {
+   "primitive": "NOUL",
+   "status": "FROZEN_UNCHANGED (Gate H v1: PASS by both reviewers)",
+   "provenance": "Reproduces v1 collator rendering byte-for-byte (continuity with the Phase 4E initialization).",
+   "candidates": [
+    {
+     "identity": "false",
+     "text": "false: não, a afirmação é falsa. a propriedade não está presente"
+    },
+    {
+     "identity": "true",
+     "text": "true: sim, a afirmação é verdadeira. a propriedade está presente"
+    }
+   ]
+  },
+  "insult_detection": {
+   "primitive": "NOUL",
+   "status": "FROZEN_UNCHANGED (Gate H v1: PASS by both reviewers)",
+   "provenance": "Reproduces v1 collator rendering byte-for-byte (continuity with the Phase 4E initialization).",
+   "candidates": [
+    {
+     "identity": "false",
+     "text": "false: não, a afirmação é falsa. a propriedade não está presente"
+    },
+    {
+     "identity": "true",
+     "text": "true: sim, a afirmação é verdadeira. a propriedade está presente"
+    }
+   ]
+  },
+  "racism_detection": {
+   "primitive": "NOUL",
+   "status": "FROZEN_UNCHANGED (Gate H v1: PASS by both reviewers)",
+   "provenance": "Reproduces v1 collator rendering byte-for-byte (continuity with the Phase 4E initialization).",
+   "candidates": [
+    {
+     "identity": "false",
+     "text": "false: não, a afirmação é falsa. a propriedade não está presente"
+    },
+    {
+     "identity": "true",
+     "text": "true: sim, a afirmação é verdadeira. a propriedade está presente"
+    }
+   ]
+  },
+  "misogyny_detection": {
+   "primitive": "NOUL",
+   "status": "FROZEN_UNCHANGED (Gate H v1: PASS by both reviewers)",
+   "provenance": "Reproduces v1 collator rendering byte-for-byte (continuity with the Phase 4E initialization).",
+   "candidates": [
+    {
+     "identity": "false",
+     "text": "false: não, a afirmação é falsa. a propriedade não está presente"
+    },
+    {
+     "identity": "true",
+     "text": "true: sim, a afirmação é verdadeira. a propriedade está presente"
+    }
+   ]
+  },
+  "xenophobia_detection": {
+   "primitive": "NOUL",
+   "status": "FROZEN_UNCHANGED (Gate H v1: PASS by both reviewers)",
+   "provenance": "Reproduces v1 collator rendering byte-for-byte (continuity with the Phase 4E initialization).",
+   "candidates": [
+    {
+     "identity": "false",
+     "text": "false: não, a afirmação é falsa. a propriedade não está presente"
+    },
+    {
+     "identity": "true",
+     "text": "true: sim, a afirmação é verdadeira. a propriedade está presente"
+    }
+   ]
+  },
+  "offensive_language": {
+   "primitive": "NOUL",
+   "status": "FROZEN_UNCHANGED (Gate H v1: PASS by both reviewers)",
+   "provenance": "Reproduces v1 collator rendering byte-for-byte (continuity with the Phase 4E initialization).",
+   "candidates": [
+    {
+     "identity": "false",
+     "text": "false: não, a afirmação é falsa. a propriedade não está presente"
+    },
+    {
+     "identity": "true",
+     "text": "true: sim, a afirmação é verdadeira. a propriedade está presente"
+    }
+   ]
+  },
+  "inferbr_nli3": {
+   "primitive": "CHOICE",
+   "status": "FROZEN (Gate H v1: PASS by both reviewers)",
+   "question": "Qual é a relação entre a premissa e a hipótese?",
+   "candidates": [
+    {
+     "identity": "implicação",
+     "source_label": "ENTAILMENT",
+     "text": "implicação. a hipótese decorre necessariamente da premissa"
+    },
+    {
+     "identity": "neutro",
+     "source_label": "NEUTRAL",
+     "text": "neutro. a premissa não confirma nem contradiz a hipótese"
+    },
+    {
+     "identity": "contradição",
+     "source_label": "CONTRADICTION",
+     "text": "contradição. a hipótese não pode ser verdadeira se a premissa for verdadeira"
+    }
+   ]
+  },
+  "anger_intensity": {
+   "primitive": "SCORE",
+   "status": "FROZEN (Gate H v1: 7/7 PASS by both reviewers)",
+   "question": "Qual é a intensidade de raiva expressa no texto?",
+   "candidates": [
+    {
+     "identity": "ausente",
+     "level": 0,
+     "text": "Nível ordinal 0: ausente. a emoção não está presente"
+    },
+    {
+     "identity": "baixa",
+     "level": 1,
+     "text": "Nível ordinal 1: baixa. a emoção está presente com baixa intensidade"
+    },
+    {
+     "identity": "moderada",
+     "level": 2,
+     "text": "Nível ordinal 2: moderada. a emoção está presente com intensidade moderada"
+    },
+    {
+     "identity": "alta",
+     "level": 3,
+     "text": "Nível ordinal 3: alta. a emoção está presente com alta intensidade"
+    }
+   ]
+  },
+  "disgust_intensity": {
+   "primitive": "SCORE",
+   "status": "FROZEN (Gate H v1: 7/7 PASS by both reviewers)",
+   "question": "Qual é a intensidade de nojo expressa no texto?",
+   "candidates": [
+    {
+     "identity": "ausente",
+     "level": 0,
+     "text": "Nível ordinal 0: ausente. a emoção não está presente"
+    },
+    {
+     "identity": "baixa",
+     "level": 1,
+     "text": "Nível ordinal 1: baixa. a emoção está presente com baixa intensidade"
+    },
+    {
+     "identity": "moderada",
+     "level": 2,
+     "text": "Nível ordinal 2: moderada. a emoção está presente com intensidade moderada"
+    },
+    {
+     "identity": "alta",
+     "level": 3,
+     "text": "Nível ordinal 3: alta. a emoção está presente com alta intensidade"
+    }
+   ]
+  },
+  "fear_intensity": {
+   "primitive": "SCORE",
+   "status": "FROZEN (Gate H v1: 7/7 PASS by both reviewers)",
+   "question": "Qual é a intensidade de medo expressa no texto?",
+   "candidates": [
+    {
+     "identity": "ausente",
+     "level": 0,
+     "text": "Nível ordinal 0: ausente. a emoção não está presente"
+    },
+    {
+     "identity": "baixa",
+     "level": 1,
+     "text": "Nível ordinal 1: baixa. a emoção está presente com baixa intensidade"
+    },
+    {
+     "identity": "moderada",
+     "level": 2,
+     "text": "Nível ordinal 2: moderada. a emoção está presente com intensidade moderada"
+    },
+    {
+     "identity": "alta",
+     "level": 3,
+     "text": "Nível ordinal 3: alta. a emoção está presente com alta intensidade"
+    }
+   ]
+  },
+  "joy_intensity": {
+   "primitive": "SCORE",
+   "status": "FROZEN (Gate H v1: 7/7 PASS by both reviewers)",
+   "question": "Qual é a intensidade de alegria expressa no texto?",
+   "candidates": [
+    {
+     "identity": "ausente",
+     "level": 0,
+     "text": "Nível ordinal 0: ausente. a emoção não está presente"
+    },
+    {
+     "identity": "baixa",
+     "level": 1,
+     "text": "Nível ordinal 1: baixa. a emoção está presente com baixa intensidade"
+    },
+    {
+     "identity": "moderada",
+     "level": 2,
+     "text": "Nível ordinal 2: moderada. a emoção está presente com intensidade moderada"
+    },
+    {
+     "identity": "alta",
+     "level": 3,
+     "text": "Nível ordinal 3: alta. a emoção está presente com alta intensidade"
+    }
+   ]
+  },
+  "sadness_intensity": {
+   "primitive": "SCORE",
+   "status": "FROZEN (Gate H v1: 7/7 PASS by both reviewers)",
+   "question": "Qual é a intensidade de tristeza expressa no texto?",
+   "candidates": [
+    {
+     "identity": "ausente",
+     "level": 0,
+     "text": "Nível ordinal 0: ausente. a emoção não está presente"
+    },
+    {
+     "identity": "baixa",
+     "level": 1,
+     "text": "Nível ordinal 1: baixa. a emoção está presente com baixa intensidade"
+    },
+    {
+     "identity": "moderada",
+     "level": 2,
+     "text": "Nível ordinal 2: moderada. a emoção está presente com intensidade moderada"
+    },
+    {
+     "identity": "alta",
+     "level": 3,
+     "text": "Nível ordinal 3: alta. a emoção está presente com alta intensidade"
+    }
+   ]
+  },
+  "surprise_intensity": {
+   "primitive": "SCORE",
+   "status": "FROZEN (Gate H v1: 7/7 PASS by both reviewers)",
+   "question": "Qual é a intensidade de surpresa expressa no texto?",
+   "candidates": [
+    {
+     "identity": "ausente",
+     "level": 0,
+     "text": "Nível ordinal 0: ausente. a emoção não está presente"
+    },
+    {
+     "identity": "baixa",
+     "level": 1,
+     "text": "Nível ordinal 1: baixa. a emoção está presente com baixa intensidade"
+    },
+    {
+     "identity": "moderada",
+     "level": 2,
+     "text": "Nível ordinal 2: moderada. a emoção está presente com intensidade moderada"
+    },
+    {
+     "identity": "alta",
+     "level": 3,
+     "text": "Nível ordinal 3: alta. a emoção está presente com alta intensidade"
+    }
+   ]
+  },
+  "community_alignment_first_turn_preference": {
+   "primitive": "CHOICE",
+   "status": "FROZEN (Gate H PASS; 384-token policy)",
+   "question": "Qual das respostas é a melhor para a mensagem do usuário?",
+   "dynamic_candidates": "text = response text verbatim (no slot letter, no index prefix); identity = 'resp:' + sha256(response)[:16]; per-candidate limit 384 tokens incl. [CLS]/[SEP]; sets with any candidate > 384 are EXCLUDED, never truncated"
+  },
+  "normastcu_relevance": {
+   "primitive": "SCORE",
+   "role": "SEALED HELD-OUT (primary)",
+   "status": "FROZEN (Gate H PASS)",
+   "question": "Qual é o grau de relevância do documento para a consulta?",
+   "provenance": "Faithful pt-BR translation of the three definitions in the NormasTCU paper (arXiv 2608.27746, English); the original Portuguese annotation-interface wording is not published.",
+   "candidates": [
+    {
+     "identity": "0",
+     "level": 0,
+     "text": "relevância 0 (irrelevante): o documento não trata do assunto da consulta"
+    },
+    {
+     "identity": "1",
+     "level": 1,
+     "text": "relevância 1 (parcialmente relevante): o documento menciona o tema da consulta ou trata de assunto relacionado, mas apenas parcialmente"
+    },
+    {
+     "identity": "2",
+     "level": 2,
+     "text": "relevância 2 (relevante): o documento responde diretamente à consulta e contém a informação central solicitada"
+    }
+   ]
+  },
+  "juristcu_relevance": {
+   "primitive": "SCORE",
+   "role": "SEALED HELD-OUT (secondary)",
+   "status": "FROZEN (Gate H PASS; score-2 boundary validated)",
+   "question": "Qual é o grau de relevância do documento para a consulta?",
+   "provenance": "Verbatim Portuguese level definitions from the JurisTCU GPT-4 judging prompt (arXiv 2503.08379, Section 3.4 / Figure 8). Numeric labels unchanged. Level 2 = partial answer; level 3 = complete answer covering all nuances.",
+   "candidates": [
+    {
+     "identity": "0",
+     "level": 0,
+     "text": "relevância 0 (irrelevante): o enunciado não responde a pergunta"
+    },
+    {
+     "identity": "1",
+     "level": 1,
+     "text": "relevância 1 (relacionado): o enunciado apenas está no tópico da pergunta"
+    },
+    {
+     "identity": "2",
+     "level": 2,
+     "text": "relevância 2 (relevante): o enunciado responde parcialmente a pergunta"
+    },
+    {
+     "identity": "3",
+     "level": 3,
+     "text": "relevância 3 (altamente relevante): o enunciado responde a pergunta, tratando completamente de suas nuances"
+    }
+   ]
+  }
+ },
+ "task_sha256": {
+  "massive_intent": "7fa620d5f345eed8981a9291fdb2bd96a07b4846c2a9c49218d7f798d8d74c65",
+  "assin2_entailment": "5f46559504a3d6b19abdd416cd9905d4275f4de9e89592675a02aee6a53c8bc5",
+  "assin2_similarity": "61d2b979196bb3eab5b177e52059a80288a4401f72b2730d3f81527b7825f717",
+  "homophobia_detection": "8a8cf0ace5c3abf6b39f0f1522f84f9900f1e9c5d48c2f0afd360a5fa9186595",
+  "obscene_detection": "8a8cf0ace5c3abf6b39f0f1522f84f9900f1e9c5d48c2f0afd360a5fa9186595",
+  "insult_detection": "8a8cf0ace5c3abf6b39f0f1522f84f9900f1e9c5d48c2f0afd360a5fa9186595",
+  "racism_detection": "8a8cf0ace5c3abf6b39f0f1522f84f9900f1e9c5d48c2f0afd360a5fa9186595",
+  "misogyny_detection": "8a8cf0ace5c3abf6b39f0f1522f84f9900f1e9c5d48c2f0afd360a5fa9186595",
+  "xenophobia_detection": "8a8cf0ace5c3abf6b39f0f1522f84f9900f1e9c5d48c2f0afd360a5fa9186595",
+  "offensive_language": "8a8cf0ace5c3abf6b39f0f1522f84f9900f1e9c5d48c2f0afd360a5fa9186595",
+  "inferbr_nli3": "68caa0de974b3154d1fc259be3352da8de37a0d0a9c668b31a849e01b075aa7a",
+  "anger_intensity": "f216983bd8ffd6096c1ad3fd718d2b50638767ad94ea8b6438b7c10e72f67cca",
+  "disgust_intensity": "631a3b56328949c9d4593994dd766acd834bab53f285cee49ab2de1744a41424",
+  "fear_intensity": "72d851332821c5f5b321b7ebb2d1fab57edefbeaefe000f2dcf29a1ee7769364",
+  "joy_intensity": "fca6d0bab0561b626e9fea067c782ab6c89827cb63a5761463909427d0540d95",
+  "sadness_intensity": "ba9f322dbcfdb058f4f5c2b874501db24791c5ced632b93f4ab637f7b68e7808",
+  "surprise_intensity": "05266ff9f78bf488dc67e3c29ce43e808fc3f5cd45b2331298767225da4e66f9",
+  "community_alignment_first_turn_preference": "3f2f5b580f6afa1ae47683f4b88945a8ac4281a9c193f2f1396d8c15225d59d7",
+  "normastcu_relevance": "e05c6e87f947cfa6136a2a869359268aa650c6accad0fde570c5c4f17d01775b",
+  "juristcu_relevance": "f0d0111ed32d8b43e2cf1115346e62e5c6a5d3e73fb35ce6d43b01604863069a"
+ },
+ "dictionary_sha256": "d2983c27327c8875a23ab31725a4d7ef1930a98467fa6b35bdeaf7a31223a901"
+}

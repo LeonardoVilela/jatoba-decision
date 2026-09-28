@@ -1,0 +1,354 @@
+{
+ "artifact": "t7_julia1_external",
+ "model": "SupersonicLabs/Julia-1@a85b127321d580d65176c89ced8273f305745d85",
+ "fidelity_gate": "PASS",
+ "notes": [
+  "native K 2-20 only (K>=24 N/A)",
+  "NOUL in literal false/true regime (frozen payloads carry no criteria)",
+  "order-sensitive; main results single canonical order",
+  "CPU FP32 (engine does not support MPS)",
+  "sealed final generalization set untouched"
+ ],
+ "sources": {
+  "julia_comparison.json": "625c8cf25b656deb2570dd2be3b1b2580a0fe20716224919047546893a4e2560",
+  "julia_gdev.json": "7d2d554129d8c073c065a6d2d9823d3923d21e96ce99cea358218eaa59d9dab4",
+  "julia_permutation.json": "e03d94d58a682dd9e5c20306975cfac646e7bc68383f3afe2a0808f8297df906",
+  "julia_fidelity_gate.json": "10bbc8882f92137aca9b30e7411f9ffde06c5951497e4db002d4e60cdc7ef926",
+  "julia_freeze.json": "3ef88a44656c77d69c7da10e01455d4dc497c8a1fcff4fe4c031646bebf97b03"
+ },
+ "rows": [
+  {
+   "block": "pristine",
+   "model": "NorDecision_RAW",
+   "records": 15028,
+   "hier_ce_eps": 0.6894,
+   "top1": 0.848,
+   "mean_confidence": 0.7919
+  },
+  {
+   "block": "pristine",
+   "model": "Julia",
+   "records": 15028,
+   "hier_ce_eps": 2.5577,
+   "top1": 0.1008,
+   "mean_confidence": 0.8072
+  },
+  {
+   "block": "legacy",
+   "model": "NorDecision_RAW",
+   "records": 12584,
+   "hier_ce_eps": 0.5163,
+   "top1": 0.8756,
+   "mean_confidence": 0.912
+  },
+  {
+   "block": "legacy",
+   "model": "Julia",
+   "records": 12584,
+   "hier_ce_eps": 1.9551,
+   "top1": 0.321,
+   "mean_confidence": 0.7967
+  },
+  {
+   "block": "massive_K2",
+   "model": "NorDecision_RAW",
+   "records": 2901,
+   "hier_ce_eps": 0.0358,
+   "top1": 0.989,
+   "mean_confidence": 0.9869
+  },
+  {
+   "block": "massive_K2",
+   "model": "Julia",
+   "records": 2901,
+   "hier_ce_eps": 0.7777,
+   "top1": 0.7329,
+   "mean_confidence": 0.8921
+  },
+  {
+   "block": "massive_K4",
+   "model": "NorDecision_RAW",
+   "records": 2901,
+   "hier_ce_eps": 0.1153,
+   "top1": 0.9655,
+   "mean_confidence": 0.9678
+  },
+  {
+   "block": "massive_K4",
+   "model": "Julia",
+   "records": 2901,
+   "hier_ce_eps": 1.3902,
+   "top1": 0.5567,
+   "mean_confidence": 0.8031
+  },
+  {
+   "block": "massive_K5",
+   "model": "NorDecision_RAW",
+   "records": 2901,
+   "hier_ce_eps": 0.1521,
+   "top1": 0.9552,
+   "mean_confidence": 0.9603
+  },
+  {
+   "block": "massive_K5",
+   "model": "Julia",
+   "records": 2901,
+   "hier_ce_eps": 1.5869,
+   "top1": 0.5129,
+   "mean_confidence": 0.7768
+  },
+  {
+   "block": "massive_K6",
+   "model": "NorDecision_RAW",
+   "records": 2901,
+   "hier_ce_eps": 0.1804,
+   "top1": 0.9479,
+   "mean_confidence": 0.9548
+  },
+  {
+   "block": "massive_K6",
+   "model": "Julia",
+   "records": 2901,
+   "hier_ce_eps": 1.7215,
+   "top1": 0.4729,
+   "mean_confidence": 0.7493
+  },
+  {
+   "block": "massive_K8",
+   "model": "NorDecision_RAW",
+   "records": 2901,
+   "hier_ce_eps": 0.2285,
+   "top1": 0.9352,
+   "mean_confidence": 0.944
+  },
+  {
+   "block": "massive_K8",
+   "model": "Julia",
+   "records": 2901,
+   "hier_ce_eps": 1.9944,
+   "top1": 0.4061,
+   "mean_confidence": 0.693
+  },
+  {
+   "block": "massive_K10",
+   "model": "NorDecision_RAW",
+   "records": 2901,
+   "hier_ce_eps": 0.2773,
+   "top1": 0.9214,
+   "mean_confidence": 0.9339
+  },
+  {
+   "block": "massive_K10",
+   "model": "Julia",
+   "records": 2901,
+   "hier_ce_eps": 2.2983,
+   "top1": 0.3437,
+   "mean_confidence": 0.6631
+  },
+  {
+   "block": "massive_K16",
+   "model": "NorDecision_RAW",
+   "records": 2901,
+   "hier_ce_eps": 0.4005,
+   "top1": 0.8928,
+   "mean_confidence": 0.9099
+  },
+  {
+   "block": "massive_K16",
+   "model": "Julia",
+   "records": 2901,
+   "hier_ce_eps": 2.8151,
+   "top1": 0.2541,
+   "mean_confidence": 0.5966
+  },
+  {
+   "block": "massive_K24",
+   "records": 0,
+   "metric_note": "N/A - exceeds Julia native candidate limit (2-20)"
+  },
+  {
+   "block": "massive_K32",
+   "records": 0,
+   "metric_note": "N/A - exceeds Julia native candidate limit (2-20)"
+  },
+  {
+   "block": "massive_K48",
+   "records": 0,
+   "metric_note": "N/A - exceeds Julia native candidate limit (2-20)"
+  },
+  {
+   "block": "massive_K60",
+   "records": 0,
+   "metric_note": "N/A - exceeds Julia native candidate limit (2-20)"
+  },
+  {
+   "block": "normas_complete1024",
+   "model": "NorDecision_RAW",
+   "records": 354,
+   "ce_eps": 1.700700382785382,
+   "ndcg10": 0.7165861798673975,
+   "mrr": 0.5271329365079365
+  },
+  {
+   "block": "normas_complete1024",
+   "model": "Jev",
+   "records": 354,
+   "ce_eps": 1.498332034562845,
+   "ndcg10": 0.8581114853512009,
+   "mrr": 0.7962797619047618
+  },
+  {
+   "block": "normas_complete1024",
+   "model": "Laya_multilingual",
+   "records": 354,
+   "ce_eps": 3.7922600310180665,
+   "ndcg10": 0.7139733539916254,
+   "mrr": 0.6035714285714285
+  },
+  {
+   "block": "normas_complete1024",
+   "model": "Julia",
+   "records": 354,
+   "ce_eps": 1.8592491610498834,
+   "ndcg10": 0.7874894564657952,
+   "mrr": 0.5619047619047619
+  },
+  {
+   "block": "normas_complete1024",
+   "model": "B0",
+   "records": 354,
+   "ce_eps": 1.0986122886681096,
+   "ndcg10": 0.711887312763587,
+   "mrr": 0.5210802279430528
+  },
+  {
+   "block": "normas_complete1024",
+   "model": "BM25_frozen",
+   "records": 354,
+   "ce_eps": null,
+   "ndcg10": 0.8288467581562798,
+   "mrr": 0.7275958994708994
+  },
+  {
+   "block": "juris",
+   "model": "NorDecision_RAW",
+   "records": 2246,
+   "ce_eps": 1.4211174269406308,
+   "ndcg10": 0.776945148194125,
+   "mrr": 0.8237777777777777
+  },
+  {
+   "block": "juris",
+   "model": "NorDecision_M0",
+   "records": 2246,
+   "ce_eps": 1.4469525570595345,
+   "ndcg10": 0.7762673251315592,
+   "mrr": 0.824
+  },
+  {
+   "block": "juris",
+   "model": "Julia",
+   "records": 2246,
+   "ce_eps": 1.9519387726722979,
+   "ndcg10": 0.6516560029062737,
+   "mrr": 0.628962555962556
+  },
+  {
+   "block": "juris",
+   "model": "B0",
+   "records": 2246,
+   "ce_eps": 1.3862943611198908,
+   "ndcg10": 0.685864449437826,
+   "mrr": 0.7397240448143102
+  },
+  {
+   "block": "juris",
+   "model": "BM25_frozen",
+   "records": 2246,
+   "ce_eps": null,
+   "ndcg10": 0.8557603596477061,
+   "mrr": 0.957962962962963
+  },
+  {
+   "block": "gdev_julia_exact_250",
+   "model": "Julia",
+   "records": 250,
+   "ce_eps": 2.2276129124744557,
+   "top1": 0.38,
+   "mrr": 0.6054190476190476
+  },
+  {
+   "block": "gdev_julia_exact_250",
+   "model": "F0@5000",
+   "records": 250,
+   "ce_eps": 1.4155488288877853,
+   "top1": 0.42,
+   "mrr": 0.6311428571428571
+  },
+  {
+   "block": "gdev_julia_exact_250",
+   "model": "R1@5000",
+   "records": 250,
+   "ce_eps": 1.4004118661712954,
+   "top1": 0.46,
+   "mrr": 0.6515095238095239
+  },
+  {
+   "block": "gdev_julia_exact_250",
+   "model": "uniform_B0",
+   "records": 250,
+   "ce_eps": 1.5827483980944619,
+   "top1": 0.22454920634920636,
+   "mrr": null
+  },
+  {
+   "block": "permutation_S1_PRISTINE_choice",
+   "model": "Julia",
+   "records": 22,
+   "argmax_flip_rate": 0.4545,
+   "mean_max_abs_prob_dev": 0.279
+  },
+  {
+   "block": "permutation_S2_K10",
+   "model": "Julia",
+   "records": 40,
+   "argmax_flip_rate": 0.6,
+   "mean_max_abs_prob_dev": 0.4487
+  },
+  {
+   "block": "permutation_S2_K16",
+   "model": "Julia",
+   "records": 40,
+   "argmax_flip_rate": 0.6,
+   "mean_max_abs_prob_dev": 0.4014
+  },
+  {
+   "block": "permutation_S2_K2",
+   "model": "Julia",
+   "records": 40,
+   "argmax_flip_rate": 0.2,
+   "mean_max_abs_prob_dev": 0.1575
+  },
+  {
+   "block": "permutation_S2_K4",
+   "model": "Julia",
+   "records": 40,
+   "argmax_flip_rate": 0.3517,
+   "mean_max_abs_prob_dev": 0.2796
+  },
+  {
+   "block": "permutation_S2_K8",
+   "model": "Julia",
+   "records": 40,
+   "argmax_flip_rate": 0.3812,
+   "mean_max_abs_prob_dev": 0.3279
+  },
+  {
+   "block": "permutation_S1_PRISTINE_choice",
+   "model": "NorDecision_v1.1",
+   "records": 22,
+   "argmax_flip_rate": 0.0,
+   "mean_max_abs_prob_dev": 8.55878079568108e-09
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "ok": true,
+ "checks": {
+  "files": {
+   "ok": true,
+   "files": 96,
+   "problems": []
+  },
+  "secrets": {
+   "ok": true,
+   "hits": []
+  },
+  "local_paths": {
+   "ok": true,
+   "hits": []
+  },
+  "sealed_set_references": {
+   "ok": true,
+   "hits": []
+  },
+  "manifests": {
+   "ok": true,
+   "blocks": 5,
+   "roles": 3,
+   "problems": []
+  },
+  "tables_and_readme_headline": {
+   "ok": true,
+   "command": "scripts/reproduce_tables.py --check",
+   "tail": []
+  },
+  "tests": {
+   "ok": true,
+   "command": "-m pytest -q",
+   "tail": [
+    "...................................                                      [100%]",
+    "35 passed"
+   ]
+  },
+  "adapter_audit": {
+   "ok": true,
+   "blocks": 8
+  }
+ }
+}

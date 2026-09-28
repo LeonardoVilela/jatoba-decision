@@ -1,0 +1,38 @@
+{
+ "title": "Matched local efficiency (same Mac, batch 1, same ordered sample)",
+ "by_block": {
+  "PRISTINE": 313,
+  "LEGACY_EXPOSED": 253,
+  "MASSIVE_K": 365,
+  "NORMAS": 9,
+  "JURIS": 60
+ },
+ "notes": [
+  "Hardware-specific (this Mac). Not comparable with hosted Jev latency. Peak = process phys_footprint sampled every 0.5 s (includes model load).",
+  "Boundary (both): perf_counter around [input formatting/tokenization -> forward -> probabilities as Python floats on CPU]."
+ ],
+ "rows": [
+  {
+   "model": "nordecision",
+   "p50_ms": 40.0370834977366,
+   "p95_ms": 60.33105169772169,
+   "mean_ms": 42.550567337078974,
+   "decisions_per_s": 23.500870464586963,
+   "peak_footprint_mb": 2268.923843383789,
+   "device": "mps",
+   "measured": 1000,
+   "warmup": 20
+  },
+  {
+   "model": "laya_multilingual",
+   "p50_ms": 25.104146014200523,
+   "p95_ms": 34.0098854736425,
+   "mean_ms": 25.684495960886125,
+   "decisions_per_s": 38.932902734184445,
+   "peak_footprint_mb": 4986.379486083984,
+   "device": "mps",
+   "measured": 1000,
+   "warmup": 20
+  }
+ ]
+}

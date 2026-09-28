@@ -1,0 +1,95 @@
+{
+ "note": "Structural checks over benchmark/build/ as rebuilt by scripts/build_benchmark.py; no upstream text.",
+ "ok": true,
+ "blocks": {
+  "gdev_faquad": {
+   "decisions": 816,
+   "primitives": {
+    "choice": 816
+   },
+   "soft_targets": 0,
+   "k_min": 2,
+   "k_max": 10,
+   "problems": {}
+  },
+  "jatoba_id": {
+   "decisions": 15711,
+   "primitives": {
+    "score": 13356,
+    "choice": 2355
+   },
+   "soft_targets": 46,
+   "k_min": 3,
+   "k_max": 4,
+   "problems": {}
+  },
+  "legacy_exposed": {
+   "decisions": 12585,
+   "primitives": {
+    "noul": 8185,
+    "score": 1499,
+    "choice": 2901
+   },
+   "soft_targets": 1742,
+   "k_min": 2,
+   "k_max": 60,
+   "problems": {}
+  },
+  "role_calibration": {
+   "decisions": 7826,
+   "primitives": {
+    "noul": 3568,
+    "score": 1762,
+    "choice": 2496
+   },
+   "soft_targets": 584,
+   "k_min": 2,
+   "k_max": 60,
+   "problems": {}
+  },
+  "role_development": {
+   "decisions": 7790,
+   "primitives": {
+    "noul": 3610,
+    "score": 1700,
+    "choice": 2480
+   },
+   "soft_targets": 562,
+   "k_min": 2,
+   "k_max": 60,
+   "problems": {}
+  },
+  "role_train": {
+   "decisions": 166465,
+   "primitives": {
+    "noul": 126123,
+    "score": 18075,
+    "choice": 22267
+   },
+   "soft_targets": 16925,
+   "k_min": 2,
+   "k_max": 60,
+   "problems": {}
+  },
+  "shift_juristcu": {
+   "decisions": 2246,
+   "primitives": {
+    "score": 2246
+   },
+   "soft_targets": 0,
+   "k_min": 4,
+   "k_max": 4,
+   "problems": {}
+  },
+  "shift_normastcu": {
+   "decisions": 804,
+   "primitives": {
+    "score": 804
+   },
+   "soft_targets": 372,
+   "k_min": 3,
+   "k_max": 3,
+   "problems": {}
+  }
+ }
+}

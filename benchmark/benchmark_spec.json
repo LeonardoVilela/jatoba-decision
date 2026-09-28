@@ -1,0 +1,138 @@
+{
+ "name": "JATOBÁ evaluation suite",
+ "version": "1.1",
+ "interface": {
+  "primitives": [
+   "noul",
+   "choice",
+   "score"
+  ],
+  "noul_candidates": [
+   "false",
+   "true"
+  ],
+  "score_order": "lowest to highest level"
+ },
+ "sources": {
+  "massive_ptbr": {
+   "hf": "Magurofg/massive-pt-br",
+   "revision": "907f905b4b237c34ba805f942bfbb6d92ec9c81f"
+  },
+  "assin2": {
+   "hf": "nilc-nlp/assin2",
+   "revision": "0ff9c86779e06855536d8775ce5550550e1e5a2d"
+  },
+  "hatebr": {
+   "hf": "franciellevargas/HateBR",
+   "revision": "077db456f6c4b376540ef07fbcfdec61e7806cc7"
+  },
+  "told_br": {
+   "url": "https://raw.githubusercontent.com/JAugusto97/ToLD-Br/6b325d26a9d25b321a3e9ba98ef98832b56729f5/ToLD-BR_alpha.csv"
+  },
+  "inferbr": {
+   "hf": "hapaxlegomenon/InferBR",
+   "revision": "304b2ca358c4f315a908b69d3d0c607ee101176d"
+  },
+  "brighter_ptbr": {
+   "hf": "brighter-dataset/BRIGHTER-emotion-intensities",
+   "revision": "08a5d61d3fc33036f97c8c76a61ff8d6f02f5157"
+  },
+  "community_alignment_pt": {
+   "hf": "facebook/community-alignment-dataset",
+   "revision": "4d21f8db61c857e7d3aab33cbc3c6caf14a12df6",
+   "note": "refs/convert/parquet of main@97343c7f6399fcbea430ed0f37c1768281a78d56"
+  },
+  "normastcu": {
+   "hf": "LeandroRibeiro/NormasTCU",
+   "revision": "f34d92d438def5978dac63270ca287571749ba42"
+  },
+  "juristcu": {
+   "hf": "LeandroRibeiro/JurisTCU",
+   "revision": "5a520e1f65dcddb17a02b98f6cfc044d681e0ee3"
+  },
+  "faquad": {
+   "url": "https://raw.githubusercontent.com/liafacom/faquad/6ad978f20672bb41625b3b71fbe4a88b893d0a86/data/{split}.json"
+  }
+ },
+ "blocks": {
+  "jatoba_id": {
+   "regime": "in-distribution held-out (historical name PRISTINE)",
+   "decisions": 15711,
+   "manifest": "manifests/jatoba_id.jsonl.gz",
+   "manifest_sha256": "554744781a1ee71884d31a2d4a2f841d2cfa17286162ed3c249ddd97807f7405"
+  },
+  "legacy_exposed": {
+   "regime": "legacy / exposed during development",
+   "decisions": 12585,
+   "manifest": "manifests/legacy_exposed.jsonl.gz",
+   "manifest_sha256": "f89941cfdfa194bf76e41dec7d35700c57c744547b01e9af413527a4d2b71e84"
+  },
+  "shift_normastcu": {
+   "regime": "family shift",
+   "decisions": 804,
+   "manifest": "manifests/shift_normastcu.jsonl.gz",
+   "manifest_sha256": "282a94c27d9a7b03c3583366124afed69c6fb808b387b86d2da16fa6853afbaa"
+  },
+  "shift_juristcu": {
+   "regime": "family shift",
+   "decisions": 2246,
+   "manifest": "manifests/shift_juristcu.jsonl.gz",
+   "manifest_sha256": "e50b908979d3e8df8138aab5b5daa689a05e64ee4c7b3c9de0796e3f0bcb917d"
+  },
+  "gdev_faquad": {
+   "regime": "development diagnostic",
+   "decisions": 816,
+   "manifest": "manifests/gdev_faquad.jsonl.gz",
+   "manifest_sha256": "21f1cbafa101952772aca72b1a84088fb375b85266323f07562a2e79a12aae16"
+  }
+ },
+ "training_roles": {
+  "train": {
+   "decisions": 166465,
+   "aggregate_sha256": "6eff722cbb68a27e3983ad2a420c8cb45f2249258de3a9a4dab7de070f427622",
+   "manifest": "manifests/role_train.jsonl.gz"
+  },
+  "development": {
+   "decisions": 7790,
+   "aggregate_sha256": "b9a553532d16c2c812ecbf57c5cd727fee563eed764e2f2bde4f8e39688010c8",
+   "manifest": "manifests/role_development.jsonl.gz"
+  },
+  "calibration": {
+   "decisions": 7826,
+   "aggregate_sha256": "869ebda38cf0c5a73d0f7ac9a3c5236974a869d621629fe12ab64c92bbcc7e52",
+   "manifest": "manifests/role_calibration.jsonl.gz"
+  }
+ },
+ "k_curve": {
+  "source_block": "legacy_exposed",
+  "task": "massive_intent",
+  "K": [
+   2,
+   4,
+   5,
+   6,
+   8,
+   10,
+   16,
+   24,
+   32,
+   48,
+   60
+  ]
+ },
+ "metrics": {
+  "epsilon": 0.005,
+  "ece_bins": 15,
+  "ece_binning": "equal mass",
+  "ndcg_cutoff": 10,
+  "relevance_threshold": 1.5,
+  "aggregation": "record -> group -> task -> family -> macro (equal weights)",
+  "family_shift_ranking_score": "expected level"
+ },
+ "candidate_dictionary": {
+  "file": "candidate_dictionary.json",
+  "version": "general-candidates-v1",
+  "sha256": "14531bc4e8cb1bee2c7c04b52379b4c12dba31e014ae69c9cedb695ffc4e1d27"
+ },
+ "sealed_final_set": "exists; not part of this release"
+}

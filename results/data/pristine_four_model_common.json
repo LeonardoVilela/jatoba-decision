@@ -1,0 +1,43 @@
+{
+ "artifact": "pristine_four_model_common",
+ "title": "JATOBÁ-ID (historical name PRISTINE): common subset read exactly by JATOBÁ, Laya multilingual, GLiNER2.5-multi-Decide and Julia-1",
+ "note": "Extracted without recomputation from the frozen Julia-1 comparison artifact. Group-hierarchical ε-CE (0.005 floor for every model). Families present: emotion_affect (BRIGHTER) and entailment (InferBR); Community Alignment is not in this subset.",
+ "source": {
+  "julia_comparison.json": "625c8cf25b656deb2570dd2be3b1b2580a0fe20716224919047546893a4e2560"
+ },
+ "records": 15025,
+ "models": {
+  "NorDecision_RAW": {
+   "records": 15025,
+   "hierarchical_ce_epsilon_group": 0.5079217570106181,
+   "family_ce_epsilon_group": {
+    "emotion_affect": 0.4612959168368877,
+    "entailment": 0.5545475971843485
+   }
+  },
+  "Julia": {
+   "records": 15025,
+   "hierarchical_ce_epsilon_group": 2.7453769755444126,
+   "family_ce_epsilon_group": {
+    "emotion_affect": 3.913318219705742,
+    "entailment": 1.5774357313830838
+   }
+  },
+  "GLiNER": {
+   "records": 15025,
+   "hierarchical_ce_epsilon_group": 1.2907891097596347,
+   "family_ce_epsilon_group": {
+    "emotion_affect": 1.5228052230536389,
+    "entailment": 1.0587729964656305
+   }
+  },
+  "Laya_multilingual": {
+   "records": 15025,
+   "hierarchical_ce_epsilon_group": 1.3813832776214263,
+   "family_ce_epsilon_group": {
+    "emotion_affect": 2.1335133829571276,
+    "entailment": 0.6292531722857253
+   }
+  }
+ }
+}

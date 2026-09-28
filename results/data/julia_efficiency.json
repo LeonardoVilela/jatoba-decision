@@ -1,0 +1,12 @@
+{
+ "model": "Julia-1",
+ "revision": "a85b127321d580d65176c89ced8273f305745d85",
+ "device": "cpu (4 threads; MPS unsupported by its engine)",
+ "measured": 1000,
+ "warmup": 20,
+ "p50_ms": 22.645895485766232,
+ "p95_ms": 34.22970790416002,
+ "decisions_per_s": 42.95680256173461,
+ "peak_footprint_mb": 2331.596221923828,
+ "note": "same frozen 1,000-decision sample and boundary as t6_matched_local_efficiency; all 1,000 fit Julia's native limits"
+}

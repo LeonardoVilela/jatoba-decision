@@ -1,0 +1,294 @@
+{
+ "note": "Exploratory v2 directions after the frozen v1.1 model. Every gate was frozen before its outputs were seen. None changed the released model.",
+ "source_sha256": {
+  "v2_decisions.jsonl": "f1659212f0d1953b5f3b6b1831cd1f7387b93c55cddfecf9fb65d8352631bad3",
+  "v2_day2_decisions_closed.json": "70c5db2ff0cf5a0dcd0c5352aa386347862b50ee7d98b7ca51c98809b76cbbe4",
+  "v2_day3_decisions_closed.json": "7772292a7259e4eb548d54635a86ab93d7ed48f3aa37feef436d6375e9f006c7",
+  "v2_promotion_result.json": "22fcd296bf81d831f20402b348fd273bf74c94ba9e62b9041d03b4cc8353ee04",
+  "gate_step01000.json": "b167397a55a7bee84b9ced781c036b9eec22ea7c2800ddaeceecb52b1e704aef"
+ },
+ "rows": [
+  {
+   "direction": "contrastive auxiliary loss (V2-B)",
+   "gate": "in-domain DEV primary vs matched control; family guard 0.05",
+   "result": {
+    "step": 1000,
+    "delta": 0.020375905200556432,
+    "P_branch": 0.590085263624632,
+    "P_control": 0.5697093584240756,
+    "family_delta": {
+     "emotion_affect": 0.016567931266773583,
+     "entailment": 0.02923399209997768,
+     "intent_routing": 0.01725772215301591,
+     "preference_ranking": 0.03874407397032531,
+     "semantic_similarity": 0.022761408720285536,
+     "toxicity_safety": -0.002309697007039521
+    },
+    "verdict": "NEGATIVE_RESULT"
+   },
+   "conclusion": "NEGATIVE_RESULT: DEV primary worse than control (+0.020 at step 1000)"
+  },
+  {
+   "direction": "hard-negative curriculum (V2-C)",
+   "gate": "same",
+   "result": {
+    "step": 1500,
+    "delta": 0.015200736456437491,
+    "P_branch": 0.5434812284242011,
+    "P_control": 0.5282804919677636,
+    "family_delta": {
+     "emotion_affect": 0.06814433297157785,
+     "entailment": -0.0014286098479289189,
+     "intent_routing": 0.020197966533218203,
+     "preference_ranking": -0.000329223350159058,
+     "semantic_similarity": -0.005007580253145294,
+     "toxicity_safety": 0.00962753268506214
+    },
+    "verdict": "NEGATIVE_RESULT"
+   },
+   "conclusion": "NEGATIVE_RESULT at step 1500: +0.015 overall, emotion family +0.068 over the 0.05 guard; sharper large-K ranking (K60 top-1 +0.027) without better probabilities"
+  },
+  {
+   "direction": "pointwise compatibility auxiliary (V2-B2)",
+   "gate": "same",
+   "result": {
+    "closed": "COMPLETE - null effect: S1 PASS_INCONCLUSIVE (dP +0.003), S2 PASS_INCONCLUSIVE (dP 0.0000); no S3 defined"
+   },
+   "conclusion": "NULL: no measurable effect at either stage"
+  },
+  {
+   "direction": "NorBERTo-large capacity, exploratory (V2-A, fresh head)",
+   "gate": "same, vs Base fresh head A0",
+   "result": {
+    "step": 1000,
+    "delta": -0.034289257086406066,
+    "P_branch": 0.7127098125513808,
+    "P_control": 0.7469990696377868,
+    "family_delta": {
+     "emotion_affect": -0.0003027604897980485,
+     "entailment": 0.07330376843318831,
+     "intent_routing": -0.1591182980245901,
+     "preference_ranking": -0.007632887236914465,
+     "semantic_similarity": -0.08023115151351479,
+     "toxicity_safety": -0.031754213686807226
+    },
+    "verdict": "NEGATIVE_RESULT"
+   },
+   "conclusion": "NEGATIVE_RESULT under the frozen gate: DEV -0.034 but entailment +0.073 over the guard"
+  },
+  {
+   "direction": "partial backbone unfreezing (V2-D)",
+   "gate": "runtime/memory preflight",
+   "result": {
+    "closed": "BLOCKED_MEMORY at S0 preflight (19 GB footprint, swap collapse; projected > 9 h per 500 steps); not run"
+   },
+   "conclusion": "BLOCKED_MEMORY on the 18 GB development machine; not run"
+  },
+  {
+   "direction": "label smoothing alpha=0.05 (R1)",
+   "gate": "GDEV eps-CE paired cluster bootstrap: PROMISING iff delta <= -0.02 and CI upper < 0",
+   "result": {
+    "seed1": {
+     "verdict": "NULL_RESULT",
+     "selected": 5000,
+     "bootstrap": {
+      "ce_eps": {
+       "delta": -0.026436869977813474,
+       "ci95": [
+        -0.05501607714287674,
+        0.006930445689529417
+       ]
+      },
+      "brier": {
+       "delta": -0.013446681727506522,
+       "ci95": [
+        -0.026799826343917286,
+        0.002187185113407082
+       ]
+      },
+      "top1": {
+       "delta": 0.027450980392156862,
+       "ci95": [
+        0.009734481237392532,
+        0.046357823366362925
+       ]
+      },
+      "catastrophic": {
+       "delta": -0.00130718954248366,
+       "ci95": [
+        -0.0078125,
+        0.0052494587476040085
+       ]
+      },
+      "records": 765,
+      "groups": 25,
+      "resamples": 10000,
+      "seed": 20261226
+     }
+    },
+    "seed2_confirmation": {
+     "result": "V2_BASE_NOT_CONFIRMED",
+     "criteria": {
+      "P1_dev": true,
+      "P2_mean_gdev_ce_eps": true,
+      "P3_brier": true,
+      "P4_ranking_massive_k": true,
+      "P5_catastrophic": true,
+      "P6_structural": true,
+      "P7_direction": false
+     },
+     "means": {
+      "d_ce_eps": -0.008156790563746921,
+      "d_brier": -0.008637715692672689,
+      "d_top1": 0.016339869281045753,
+      "d_mrr": 0.010528581803091575,
+      "d_gdev_catastrophic": 0.00196078431372549,
+      "dev_vs_matched_F0": -0.0008213698353402576
+     }
+    },
+    "per_seed": [
+     {
+      "seed": 1,
+      "F0_step": 5000,
+      "cand_step": 5000,
+      "dev_vs_matched_F0": 0.001474809972678015,
+      "dev_vs_selected_F0": 0.001474809972678015,
+      "d_ce_eps": -0.026436869977813474,
+      "ce_eps_ci95": [
+       -0.05501607714287674,
+       0.006930445689529417
+      ],
+      "d_brier": -0.013446681727506522,
+      "d_top1": 0.027450980392156862,
+      "d_mrr": 0.017880485527544288,
+      "d_gdev_catastrophic": -0.00130718954248366,
+      "dev_catastrophic": {
+       "F0": 0.003136981526664343,
+       "cand": 0.0006971070059254096
+      },
+      "d_massive_k_top1": {
+       "massive_intent@24": 0.005324813631522929,
+       "massive_intent@60": 0.004259850905218299
+      },
+      "structural_ok": true,
+      "day3_verdict": "NULL_RESULT"
+     },
+     {
+      "seed": 2,
+      "F0_step": 4000,
+      "cand_step": 5000,
+      "dev_vs_matched_F0": -0.0031175496433585304,
+      "dev_vs_selected_F0": -0.003569358470689732,
+      "d_ce_eps": 0.010123288850319632,
+      "ce_eps_ci95": [
+       -0.02312050238002678,
+       0.046724390475617855
+      ],
+      "d_brier": -0.003828749657838857,
+      "d_top1": 0.00522875816993464,
+      "d_mrr": 0.0031766780786388615,
+      "d_gdev_catastrophic": 0.00522875816993464,
+      "dev_catastrophic": {
+       "F0": 0.0024398745207389336,
+       "cand": 0.0001742767514813524
+      },
+      "d_massive_k_top1": {
+       "massive_intent@24": 0.0031948881789137795,
+       "massive_intent@60": 0.008519701810436597
+      },
+      "structural_ok": true,
+      "day3_verdict": "NULL_RESULT"
+     }
+    ]
+   },
+   "conclusion": "NULL_RESULT at seed 1 (eps-CE -0.026 [-0.055, +0.007]); independent seed-2 confirmation failed (V2_BASE_NOT_CONFIRMED). Replicated in both seeds: in-domain confident errors p(gold)<0.01 cut 5-14x"
+  },
+  {
+   "direction": "focal loss gamma=2 (R2)",
+   "gate": "same",
+   "result": {
+    "verdict": "NOT_AVAILABLE",
+    "selected": null,
+    "bootstrap": null
+   },
+   "conclusion": "no eligible checkpoint: under-confident (DEV ECE ~0.11), regressions in three families"
+  },
+  {
+   "direction": "NorBERTo-large capacity, matched confirmation (F0 loss, FP32 context cache)",
+   "gate": "C1 at step 1000: DEV delta <= +0.015 and no family delta > +0.05",
+   "result": {
+    "step": 1000,
+    "dev_primary": {
+     "base": 0.7361097240916248,
+     "large": 0.7341417452064976
+    },
+    "d_dev_primary": -0.0019679788851272306,
+    "d_family": {
+     "emotion_affect": -0.028834046155840287,
+     "entailment": -0.015608340622818906,
+     "intent_routing": -0.025903422300368573,
+     "preference_ranking": -0.0014601508448335299,
+     "semantic_similarity": 0.08662667233617083,
+     "toxicity_safety": -0.026628585723073084
+    },
+    "families_over_guard": [
+     "semantic_similarity"
+    ],
+    "k_curve": {
+     "massive_intent@2": {
+      "base": 0.9574014909478168,
+      "large": 0.9446219382321619
+     },
+     "massive_intent@10": {
+      "base": 0.7539936102236422,
+      "large": 0.7646432374866879
+     },
+     "massive_intent@24": {
+      "base": 0.6155484558040468,
+      "large": 0.6368477103301384
+     },
+     "massive_intent@60": {
+      "base": 0.4398296059637913,
+      "large": 0.4898828541001065
+     }
+    },
+    "label": "V2_LARGE_NOT_CONFIRMED",
+    "gdev_bootstrap_large_minus_base": {
+     "ce_eps": {
+      "delta": 0.023506477538666973,
+      "ci95": [
+       -0.01994476526939481,
+       0.061013681074984144
+      ]
+     },
+     "brier": {
+      "delta": 0.012424361813043157,
+      "ci95": [
+       -0.007794777307301292,
+       0.031121581154986637
+      ]
+     },
+     "top1": {
+      "delta": -0.00261437908496732,
+      "ci95": [
+       -0.03995131086142322,
+       0.03534082325584839
+      ]
+     },
+     "catastrophic": {
+      "delta": 0.00392156862745098,
+      "ci95": [
+       -0.0017123287671232876,
+       0.009890688617454409
+      ]
+     },
+     "records": 765,
+     "groups": 25,
+     "resamples": 10000,
+     "seed": 20261226
+    }
+   },
+   "conclusion": "V2_LARGE_NOT_CONFIRMED: DEV equal (-0.002), semantic similarity +0.087 over the guard; large-K ranking better (K60 top-1 +0.050) but GDEV eps-CE not better (+0.024 [-0.020, +0.061])"
+  }
+ ]
+}

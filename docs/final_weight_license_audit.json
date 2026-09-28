@@ -1,0 +1,233 @@
+{
+ "audit": "final_weight_license_audit",
+ "date": "2026-09-28",
+ "scope": "training sources of the frozen JATOBÁ v1.1 checkpoint (NorDecision v1.1, best step 5000) and its frozen encoder",
+ "method": "fresh primary-source review: Hugging Face card YAML and Hub API at the pinned revisions; authors' GitHub LICENSE/README; official project pages; task papers. Evidence file SHA-256 below. Not legal advice.",
+ "proposed_weight_license": "CC-BY-NC-SA-4.0",
+ "sources": [
+  {
+   "source": "NorBERTo-base (frozen encoder inside the weights)",
+   "role": "model component",
+   "upstream": "https://huggingface.co/Itau-Unibanco/NorBERTo-base",
+   "revision": "db73446f89c96044863ea05a39f680524b84bccb",
+   "author": "Itaú Unibanco / ICTi",
+   "license": "CC-BY-NC-SA-4.0",
+   "license_evidence": [
+    "card YAML `license: cc-by-nc-sa-4.0` at the pinned revision",
+    "Hub API tag license:cc-by-nc-sa-4.0 at the pinned revision"
+   ],
+   "applies_to": "model weights",
+   "training_permitted": "fine-tuning/derivation allowed under CC BY-NC-SA 4.0 terms (NonCommercial, ShareAlike)",
+   "weight_restriction": "derived weights must stay NonCommercial and ShareAlike (CC BY-NC-SA 4.0 or compatible)",
+   "attribution": "credit Itaú Unibanco, link the model and license, cite the NorBERTo paper (card citation block)",
+   "status": "NONCOMMERCIAL_ONLY",
+   "implication": "sets the floor for JATOBÁ weights: CC BY-NC-SA 4.0, non-commercial",
+   "ambiguity": null
+  },
+  {
+   "source": "MASSIVE pt-BR localization",
+   "role": "training (intent routing)",
+   "upstream": "https://huggingface.co/datasets/Magurofg/massive-pt-br",
+   "revision": "907f905b4b237c34ba805f942bfbb6d92ec9c81f",
+   "author": "Magurofg (localization); Amazon (MASSIVE, https://huggingface.co/datasets/AmazonScience/massive)",
+   "license": "CC-BY-4.0",
+   "license_evidence": [
+    "card YAML `license: cc-by-4.0`",
+    "card text: 'Derivado do MASSIVE © Amazon.com, sob CC-BY-4.0; esta localização mantém a licença.'",
+    "AmazonScience/massive card: cc-by-4.0"
+   ],
+   "applies_to": "data",
+   "training_permitted": "CC BY 4.0 permits adaptation for any purpose; no training restriction stated",
+   "weight_restriction": "none stated",
+   "attribution": "cite MASSIVE (FitzGerald et al., 2022) and the localization repository (requested on the card)",
+   "status": "AMBIGUOUS",
+   "implication": "license terms are compatible with the proposed weight license; provenance needs clarification",
+   "ambiguity": "The pt-BR text is not Amazon's: it was produced by an unnamed 'LLM teacher' from the pt-PT split. The generating model and its output terms are not identified in the card or in the author's public repositories (the linked repository MaxxArtes/pocket-lm returns 404). Terms of that model are unknown."
+  },
+  {
+   "source": "ASSIN 2",
+   "role": "training (entailment NOUL, similarity SCORE)",
+   "upstream": "https://huggingface.co/datasets/nilc-nlp/assin2",
+   "revision": "0ff9c86779e06855536d8775ce5550550e1e5a2d",
+   "author": "Livy Real, Erick Fonseca, Hugo Gonçalo Oliveira (ASSIN 2 organizers)",
+   "license": "NOT SPECIFIED",
+   "license_evidence": [
+    "HF card YAML `license: unknown`; 'Licensing Information: [More Information Needed]'",
+    "official site https://sites.google.com/view/assin2/ and /english: no license, terms or permission statement; data on Google Drive",
+    "task paper (CEUR-WS Vol-2583): the only CC BY 4.0 notice reads 'Copyright © 2020 for this paper by its authors' — it covers the paper, not the corpus",
+    "evaluation-script repository https://github.com/erickrf/assin: MIT, covers the scripts only; no data",
+    "ASSIN 2 is built on SICK-BR (https://github.com/livyreal/SICK-BR @ 82ddaec6): no license file or statement",
+    "SICK-BR translates SICK (Marelli et al., 2014), distributed under CC BY-NC-SA 3.0 (https://zenodo.org/records/2787612; https://marcobaroni.org/composes/sick.html)"
+   ],
+   "applies_to": "n/a",
+   "training_permitted": "training use documented as the purpose of the shared task; no written license",
+   "weight_restriction": "no explicit clause either permitting or restricting redistribution of trained weights",
+   "attribution": "cite Real et al. (2020); the SICK root requires attribution and is NonCommercial-ShareAlike",
+   "status": "OPEN_RESEARCH_USE_EVIDENCE_STRONG / FORMAL_LICENSE_UNSPECIFIED",
+   "implication": "formal license unspecified; weights released under a documented human risk acceptance (see release_decision)",
+   "ambiguity": "Public download, the Apache header of loader code, and third-party models trained on ASSIN 2 were not treated as permission. Upstream SICK is CC BY-NC-SA 3.0, which would be compatible with a non-commercial share-alike release, but the ASSIN 2 additions and annotations carry no license at all.",
+   "research_use_evidence": [
+    "official page (sites.google.com/view/assin2) publicly distributes train, validation and test data via direct links",
+    "task paper: 'ASSIN 2 offered the interested community a new benchmark for computational semantic tasks in Portuguese'",
+    "task paper acknowledgements: annotators took part 'with the single purpose of producing open resources for the community interested on the computational processing Portuguese'",
+    "task paper: participating teams trained models on the ASSIN 2 train collection (e.g. BERT fine-tuned 'with ASSIN 1 (train and test) and ASSIN 2 (train) data')"
+   ]
+  },
+  {
+   "source": "InferBR",
+   "role": "training (3-way NLI)",
+   "upstream": "https://huggingface.co/datasets/hapaxlegomenon/InferBR (mirror of https://github.com/lbencke/InferBR)",
+   "revision": "304b2ca358c4f315a908b69d3d0c607ee101176d (original repository main b6c5e0b2)",
+   "author": "Bencke, Pereira, Santos, Moreira (LREC-COLING 2024)",
+   "license": "MIT",
+   "license_evidence": [
+    "original repository LICENSE: MIT (repository contains train/val/test CSVs)",
+    "mirror card YAML `license: mit`"
+   ],
+   "applies_to": "repository contents including the data files",
+   "training_permitted": "MIT grants use, modification and distribution without restriction",
+   "weight_restriction": "none stated",
+   "attribution": "keep the MIT notice; cite Bencke et al. (2024)",
+   "status": "CLEAR_FOR_TRAINING_AND_WEIGHT_RELEASE",
+   "implication": "no obstacle",
+   "ambiguity": "MIT is a software license applied here to data; the premises' own provenance was not independently audited."
+  },
+  {
+   "source": "ToLD-Br",
+   "role": "training (six toxicity NOUL tasks)",
+   "upstream": "https://github.com/JAugusto97/ToLD-Br",
+   "revision": "6b325d26a9d25b321a3e9ba98ef98832b56729f5 (file ToLD-BR_alpha.csv)",
+   "author": "Leite, Silva, Bontcheva, Scarton (AACL 2020)",
+   "license": "CC-BY-SA-4.0",
+   "license_evidence": [
+    "README: 'ToLD-Br is licensed under a Creative Commons BY-SA 4.0 license' (LICENSE_ToLD-Br.txt, full CC BY-SA 4.0 legal code)",
+    "code separately MIT (LICENSE_code.txt)",
+    "HF card JAugusto97/told-br: cc-by-sa-4.0"
+   ],
+   "applies_to": "data",
+   "training_permitted": "adaptation permitted under ShareAlike; the authors themselves distribute a model fine-tuned on ToLD-Br (README 'Trained Model')",
+   "weight_restriction": "none stated for trained weights",
+   "attribution": "credit the authors, link the license, indicate changes; cite Leite et al. (2020)",
+   "status": "SHAREALIKE_OR_ATTRIBUTION",
+   "implication": "compatible with a CC BY-NC-SA 4.0 weight release if ShareAlike reaches the weights; not a blocker",
+   "ambiguity": "Neither the license nor the authors state whether trained weights are Adapted Material. This audit does not decide that question. Tweets are also subject to platform terms."
+  },
+  {
+   "source": "HateBR",
+   "role": "training (offensive language NOUL)",
+   "upstream": "https://huggingface.co/datasets/franciellevargas/HateBR (authors' repository https://github.com/franciellevargas/HateBR)",
+   "revision": "077db456f6c4b376540ef07fbcfdec61e7806cc7 (GitHub main a1301437)",
+   "author": "Vargas, Carvalho, Góes, Pardo, Benevenuto (LREC 2022)",
+   "license": "CC-BY-NC-4.0 (authors' repository); the HF card says apache-2.0",
+   "license_evidence": [
+    "GitHub LICENSE: 'Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)'",
+    "GitHub README: 'This dataset is licensed under ... (CC BY-NC 4.0)' and 'intended for research purposes only. Commercial use is not permitted.'",
+    "HF card (same author) YAML: apache-2.0 — conflicting; the stricter authors' statement is adopted"
+   ],
+   "applies_to": "data",
+   "training_permitted": "non-commercial use; README says research purposes only",
+   "weight_restriction": "no statement about trained weights",
+   "attribution": "credit the authors; cite Vargas et al. (2022)",
+   "status": "NONCOMMERCIAL_ONLY",
+   "implication": "weights must be non-commercial; a research-only, non-commercial release is consistent with the stated intent",
+   "ambiguity": "The license statements conflict (HF Apache-2.0 vs GitHub CC BY-NC 4.0). The 'research purposes only' sentence is narrower than CC BY-NC itself; confirming that a public non-commercial weight release is acceptable to the authors would remove doubt."
+  },
+  {
+   "source": "BRIGHTER (ptbr emotion intensity)",
+   "role": "training (six emotion SCORE tasks)",
+   "upstream": "https://huggingface.co/datasets/brighter-dataset/BRIGHTER-emotion-intensities",
+   "revision": "08a5d61d3fc33036f97c8c76a61ff8d6f02f5157",
+   "author": "Muhammad et al. (BRIGHTER / SemEval-2025 Task 11)",
+   "license": "CC-BY-4.0",
+   "license_evidence": [
+    "card YAML `license: cc-by-4.0`",
+    "card section 'License: This dataset is licensed under CC-BY 4.0.'"
+   ],
+   "applies_to": "data",
+   "training_permitted": "CC BY 4.0 permits adaptation for any purpose",
+   "weight_restriction": "none stated",
+   "attribution": "cite the two BRIGHTER papers listed on the card",
+   "status": "SHAREALIKE_OR_ATTRIBUTION",
+   "implication": "attribution only",
+   "ambiguity": "Part of the texts originate from social media; platform terms not separately reviewed."
+  },
+  {
+   "source": "Community Alignment (Portuguese first turn)",
+   "role": "training (preference ranking)",
+   "upstream": "https://huggingface.co/datasets/facebook/community-alignment-dataset",
+   "revision": "97343c7f6399fcbea430ed0f37c1768281a78d56 (parquet conversion 4d21f8db)",
+   "author": "Zhang et al. (Meta; ICLR 2026)",
+   "license": "CC-BY-4.0",
+   "license_evidence": [
+    "card: 'Community Alignment is released under the Creative Commons Attribution 4.0 International License (CC-BY-4.0).'",
+    "card 'Usage': 'Users must implement appropriate filtering and moderation measures when utilizing this dataset for training purposes' — training use is explicitly contemplated"
+   ],
+   "applies_to": "data",
+   "training_permitted": "explicitly contemplated by the card",
+   "weight_restriction": "none stated",
+   "attribution": "cite Zhang et al. (2026) as given on the card",
+   "status": "SHAREALIKE_OR_ATTRIBUTION",
+   "implication": "attribution only",
+   "ambiguity": "The card asks users to filter annotator-initiated prompts for their own content standards; no consent or privacy terms beyond the card were reviewed, and none are claimed here."
+  }
+ ],
+ "evaluation_only": [
+  {
+   "source": "NormasTCU",
+   "license": "CC-BY-4.0 (README)",
+   "note": "evaluation only; does not affect weights"
+  },
+  {
+   "source": "JurisTCU",
+   "license": "CC-BY-4.0 (README)",
+   "note": "evaluation only; does not affect weights"
+  },
+  {
+   "source": "FaQuAD",
+   "license": "not stated at https://github.com/liafacom/faquad @ 6ad978f2 (HF mirror declares cc-by-4.0 in metadata only)",
+   "note": "development diagnostic only; does not affect weights"
+  }
+ ],
+ "gate": "WEIGHTS_RELEASED_NONCOMMERCIAL_WITH_DOCUMENTED_LICENSE_AMBIGUITY (pending technical validation)",
+ "blocking": [],
+ "clarifications_recommended": [
+  "MASSIVE pt-BR: identity and terms of the LLM used for localization",
+  "HateBR: authors' confirmation that a public non-commercial weight release fits 'research purposes only'",
+  "ToLD-Br: authors' view on ShareAlike and trained weights"
+ ],
+ "future_route": "if the ASSIN 2 organizers object, withdraw the weights; a candidate trained without ASSIN 2 would be a different model, not v1.1 (not run)",
+ "evidence_sha256": {
+  "NorBERTo card (db73446f)": "b715d0a64b18fd34d52dfcff8a8c8544eedeab4dfe39fb01a1aee9cca236587c",
+  "ASSIN 2 HF card (0ff9c867)": "397d80db02fb207f23b3640408c6f37bc2bc450651c01a9932ce352e2579d2d7",
+  "ASSIN 2 task paper CEUR-WS Vol-2583/1_ASSIN-2.pdf": "7c5946c3b2f87871ee6a57f59d4c93e69e174724cc530dc1a29e04a6c23b6e41",
+  "SICK-BR readme.txt (82ddaec6)": "6a4f2930f947657ce5d77c55f41f1d7d5421e3312a3a1dc6b761e53909e16b5f",
+  "MASSIVE pt-BR card (907f905b)": "0b0634f242a98ab5c99cc987d51d66359b9057fd868fe2066d818d4afd673ea4",
+  "HateBR HF card (077db456)": "a5ebef9ef0e666142d349f4d195183fd58fb4ec7358c413461cd6361176fbed4",
+  "HateBR GitHub README (main)": "17b5db5caa4714946c3a6ca5107489b14689b6dc7a23bd0ebcbbafa43cd6a4f2",
+  "HateBR GitHub LICENSE (main)": "0547bb58dcfaa360b149fe46e0f95527abbb06d0373f113fffc61330b6cd0e41",
+  "ToLD-Br LICENSE_ToLD-Br.txt (6b325d26)": "53b9f9a85342ded491bac548fc146f21be99ab93ac7a2acd78fa605e654cc556",
+  "ToLD-Br README (6b325d26)": "ccd4ef1a25176f4fed4ee5f3493cfb89e57708005392b1428e423fa3df25d896",
+  "InferBR LICENSE (main)": "b1cd6172bf8061abcbd7917e9246ddeded210339482e802e3413b74cc7e0de38",
+  "BRIGHTER card (08a5d61d)": "5a75143a1259effbc276268b209bfdc4ed6c4e9c0bb0d44b10eecaa75c0f3149",
+  "Community Alignment card (97343c7f)": "f4b702e3a13f450374a44aed08e3aad3cac9eecbdedde080e7e665e8283be554"
+ },
+ "assin2_urls_searched": [
+  "https://huggingface.co/datasets/nilc-nlp/assin2 (card and Hub API at 0ff9c867)",
+  "https://sites.google.com/view/assin2/",
+  "https://sites.google.com/view/assin2/english",
+  "https://ceur-ws.org/Vol-2583/1_ASSIN-2.pdf",
+  "https://github.com/erickrf/assin",
+  "https://github.com/livyreal/SICK-BR",
+  "https://zenodo.org/records/2787612",
+  "https://marcobaroni.org/composes/sick.html",
+  "web search: 'ASSIN 2 shared task corpus license', '\"ASSIN 2\" dataset license Creative Commons'"
+ ],
+ "gate_automatic": "WEIGHT_RELEASE_BLOCKED (ASSIN2 formal license unspecified)",
+ "release_decision": {
+  "decision": "USER_ACCEPTED_NONCOMMERCIAL_WEIGHT_RELEASE_WITH_DOCUMENTED_ASSIN2_LICENSE_AMBIGUITY",
+  "by": "Leonardo Vilela (project author)",
+  "date": "2026-09-28",
+  "scope": "JATOBÁ v1.1 model weights only, under CC BY-NC-SA 4.0; does not authorize redistribution of ASSIN 2 text (benchmark policy stays REBUILD_FROM_UPSTREAM_ONLY)",
+  "note": "a human release decision, not a legal clearance; the ASSIN 2 license ambiguity remains and is disclosed"
+ }
+}

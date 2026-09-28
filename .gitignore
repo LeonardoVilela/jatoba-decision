@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# JATOBÁ: rebuilt benchmark data (upstream texts are not redistributed), weights, local artifacts
+benchmark/build/
+*.pt
+*.safetensors
+*.ckpt
+.DS_Store

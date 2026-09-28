@@ -1,0 +1,117 @@
+{
+ "release": "JATOBÁ v1.1 (internal development name NorDecision v1.1)",
+ "status": "WEIGHTS_RELEASED_NONCOMMERCIAL_WITH_DOCUMENTED_LICENSE_AMBIGUITY",
+ "release_decision": "USER_ACCEPTED_NONCOMMERCIAL_WEIGHT_RELEASE_WITH_DOCUMENTED_ASSIN2_LICENSE_AMBIGUITY (see docs/final_weight_license_audit.md)",
+ "huggingface": {
+  "repo": "leoabreu288/jatoba-decision",
+  "url": "https://huggingface.co/leoabreu288/jatoba-decision",
+  "visibility": "public",
+  "upload_commit": "145f99385cc4ce842013e15fb4b1e5beebc1358a",
+  "license": "cc-by-nc-sa-4.0",
+  "files": {
+   "ATTRIBUTIONS.md": {
+    "bytes": 2879,
+    "sha256": "17ededf68c0ca50d730f0905637c93bcb686b6778aa32bfaa3f9f69f4bc26164"
+   },
+   "LICENSE_MODEL.md": {
+    "bytes": 1685,
+    "sha256": "aca649aaf6f0cef3fbccbe8b9565f83ef235aa0e12aad3c26568de16389bdef5"
+   },
+   "README.md": {
+    "bytes": 7473,
+    "sha256": "d48d27cef5b0d285e047ba7ca5834122ec588bb0eb1f354ded64a390c989a5af"
+   },
+   "config.json": {
+    "bytes": 1137,
+    "sha256": "698fe516bdf775a11b80bd69b82c01e440ef1b8c2d17b6aa0ff22b9c74a48df9"
+   },
+   "jatoba_config.json": {
+    "bytes": 1016,
+    "sha256": "32364962ecebb845adb61184617ed8489a031a22c92331329b4ee66b010a4027"
+   },
+   "jatoba_linkedin_main.png": {
+    "bytes": 226088,
+    "sha256": "26bdfa3dc801215d6743a2b26b3f445a0fc3a00d79f1d38bfff0ea251bbff580"
+   },
+   "model.safetensors": {
+    "bytes": 676426868,
+    "sha256": "0b8dbbbd3ccc5b24b0802c80cab3585252c2e5392fd7d6d6f3c7f6834091f8f2"
+   },
+   "special_tokens_map.json": {
+    "bytes": 693,
+    "sha256": "14312eab40fcda429ecbe9b548bfdcf18b051c534e12970c6a8e86ae759cd885"
+   },
+   "tokenizer.json": {
+    "bytes": 3662533,
+    "sha256": "4d94eba9ab0a7d90459ab12fd8125f37ed111bdd4c6a71ebf91a694bcc2ba582"
+   },
+   "tokenizer_config.json": {
+    "bytes": 16189,
+    "sha256": "f5488e40f66f1d59c89d9f2eb51392ebc978d4096e3f33c66d30b2cb4b22c2e8"
+   }
+  }
+ },
+ "source_checkpoint": {
+  "description": "frozen v1.1 best checkpoint, step 5000; only head_state was exported (optimizer, scheduler, RNG and sampler state were not)",
+  "sha256": "78d22d758edcdf8529768d22730723d0a0edf17e84fc811f357ad8d150dd5882"
+ },
+ "backbone": {
+  "id": "Itau-Unibanco/NorBERTo-base",
+  "revision": "db73446f89c96044863ea05a39f680524b84bccb",
+  "license": "cc-by-nc-sa-4.0",
+  "included": "unchanged, bitwise-equal tensors"
+ },
+ "public_safetensors_sha256": "0b8dbbbd3ccc5b24b0802c80cab3585252c2e5392fd7d6d6f3c7f6834091f8f2",
+ "equivalence": {
+  "status": "PASS",
+  "file": "docs/hf_release_equivalence.json",
+  "summary": {
+   "PRISTINE": {
+    "decisions": 160,
+    "T2_max_abs_logit_vs_research_path": 0.0,
+    "T2_argmax_flips": 0,
+    "T3_max_abs_logit_vs_frozen_logits": 2.86102294921875e-05,
+    "T3_max_abs_prob_vs_frozen": 3.7052313969221373e-06,
+    "T3_argmax_flips": 0
+   },
+   "LEGACY_EXPOSED": {
+    "decisions": 160,
+    "T2_max_abs_logit_vs_research_path": 0.0,
+    "T2_argmax_flips": 0,
+    "T3_max_abs_logit_vs_frozen_logits": 4.76837158203125e-05,
+    "T3_max_abs_prob_vs_frozen": 5.431929559873705e-06,
+    "T3_argmax_flips": 0
+   }
+  },
+  "tensor_identity": {
+   "head_tensors": 43,
+   "head_bitwise_equal": true,
+   "encoder_tensors": 134,
+   "encoder_bitwise_equal_to_norberto": true,
+   "norberto_source_dtypes": [
+    "torch.float32"
+   ],
+   "public_tensors": 177,
+   "public_parameters": 169102081,
+   "extra_or_missing_keys": []
+  }
+ },
+ "github": {
+  "repo": "https://github.com/LeonardoVilela/jatoba-decision",
+  "branch": "release/jatoba-v1.1",
+  "code_commit_tested": "4e63c49",
+  "code_license": "Apache-2.0"
+ },
+ "clean_environment_test": {
+  "install": "pip install \"git+https://github.com/LeonardoVilela/jatoba-decision.git@release/jatoba-v1.1\" (fresh Python 3.12 venv)",
+  "hf_cache": "empty, no token",
+  "snippet": "the Usage snippet of the model card, verbatim",
+  "result": "PASS",
+  "downloaded_revision": "145f99385cc4ce842013e15fb4b1e5beebc1358a",
+  "downloaded_safetensors_sha256_matches": true,
+  "output": {
+   "alarm_set": 0.9999999543397912,
+   "weather_query": 4.5660208939076563e-08
+  }
+ }
+}

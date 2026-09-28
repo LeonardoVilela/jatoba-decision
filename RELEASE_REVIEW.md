@@ -70,27 +70,49 @@ Machine-readable structural checks: `benchmark/adapter_audit.json` (no problems 
 
 No upstream records are distributed. The candidate dictionary quotes short rubric sentences from the ASSIN 2 guidelines and the JurisTCU and NormasTCU papers, with citations.
 
-## Withheld
+## Weight release (2026-09-28)
 
-- **Model weights:** the full checkpoint and the head-only file.
-- **Built benchmark data:** `benchmark/build/`, which is git-ignored.
-- **Research-only artifacts:** raw predictions, run directories, external-model raw responses, and the training code.
+**Status:** `WEIGHTS_RELEASED_NONCOMMERCIAL_WITH_DOCUMENTED_LICENSE_AMBIGUITY`.
+
+- **Where:** https://huggingface.co/leoabreu288/jatoba-decision (public), upload commit `145f99385cc4ce842013e15fb4b1e5beebc1358a`.
+- **License:** CC BY-NC-SA 4.0, which follows the included NorBERTo-base encoder. The GitHub code stays Apache-2.0.
+- **Human release decision:**
+  - `USER_ACCEPTED_NONCOMMERCIAL_WEIGHT_RELEASE_WITH_DOCUMENTED_ASSIN2_LICENSE_AMBIGUITY`.
+  - ASSIN 2 is `OPEN_RESEARCH_USE_EVIDENCE_STRONG / FORMAL_LICENSE_UNSPECIFIED`.
+  - The decision is a disclosed choice, not a legal clearance.
+  - ASSIN 2 text is still never redistributed.
+  - Details: [`docs/final_weight_license_audit.md`](docs/final_weight_license_audit.md).
+- **Artifact:**
+  - `model.safetensors` contains the full model: the frozen NorBERTo-base encoder unchanged, plus the trained head. It is float32, SHA-256 `0b8dbbbd3ccc5b24b0802c80cab3585252c2e5392fd7d6d6f3c7f6834091f8f2`.
+  - It comes from the frozen checkpoint `78d22d758edcdf8529768d22730723d0a0edf17e84fc811f357ad8d150dd5882`, from which only the head was exported. Optimizer, scheduler, RNG and sampler state were not uploaded.
+- **Equivalence:** PASS ([`docs/hf_release_equivalence.json`](docs/hf_release_equivalence.json)).
+  - All 177 tensors are bitwise-identical to their sources.
+  - The public load path matches the research path exactly (Δ 0.0).
+  - Against the frozen v1.1 logits, on 320 decisions: max Δ 4.8e-5, 0 top-1 changes.
+- **Clean test:** PASS. A fresh venv installed from GitHub, then ran the model card snippet with an empty Hugging Face cache and no token. The downloaded file hash matches. Manifest: [`docs/hf_release_manifest.json`](docs/hf_release_manifest.json).
+- **Security:**
+  - The Hugging Face token was read from the local `.env` inside the upload process only; it was never printed or written.
+  - `.env` is git-ignored and absent from every commit.
+  - The staging directory was scanned for tokens, local paths and sealed-set references before the upload. The only hit was 3 generic subword entries in NorBERTo's byte-identical upstream `tokenizer.json`.
+
+## Not published
+
+- **Built benchmark data:** `benchmark/build/`, which is git-ignored. No upstream dataset text is on GitHub or Hugging Face.
+- **Research-only artifacts:** the full training checkpoint (optimizer and RNG state), raw predictions, run directories, external-model raw responses, and the training code.
 - **The sealed final generalization set:** its data, manifest, ids and build output.
 
-## Licensing blockers for weights
+## Remaining licensing notes
 
-1. NorBERTo-base is CC-BY-NC-SA-4.0: non-commercial and share-alike.
-2. ASSIN 2 states no license.
-3. HateBR's license statements conflict: Apache-2.0 on the Hugging Face card, CC BY-NC 4.0 on GitHub.
-4. The scope of ToLD-Br's ShareAlike clause for trained weights is unclear.
-5. Community Alignment's consent and privacy documentation for model training is not public.
-6. FaQuAD has no license at its source. It affects evaluation only, not training.
+1. NorBERTo-base is CC BY-NC-SA 4.0, so the weights are non-commercial and share-alike.
+2. ASSIN 2 states no corpus license. A permission request to the organizers is drafted in the audit; it has not been sent.
+3. HateBR's authors say CC BY-NC 4.0 and "research purposes only"; their Hugging Face card says Apache-2.0.
+4. ToLD-Br is CC BY-SA 4.0. Whether ShareAlike reaches trained weights is not stated.
+5. The MASSIVE pt-BR localization does not name the LLM used to create it.
+6. FaQuAD has no license at its source; it is used for evaluation only.
 
 ## Before announcing publicly
 
-- Read the rendered README, MODEL_CARD and BENCHMARK_CARD on GitHub. Check that the figures render and the Mermaid diagram displays.
-- Confirm that the CI run on GitHub is green. It installs CPU torch and has only run locally so far.
-- Decide whether `main` should receive the release branch; this review did not merge.
-- Keep the weights statement until the licensing items above are resolved. Get legal advice before any weight release.
-- Optionally ask the NorBERTo, HateBR, ASSIN 2 and ToLD-Br authors to confirm the terms.
-- Do not describe JATOBÁ-ID or the legacy block as a generalization test, or any table as a leaderboard.
+- Confirm that the CI run on GitHub is green.
+- Decide whether `main` should receive the release branch. This review did not merge, so the GitHub landing page still shows `main`.
+- Optionally send the ASSIN 2 permission request and ask the HateBR, ToLD-Br and MASSIVE pt-BR authors to confirm their terms.
+- Do not describe the weights as commercially usable, or the licensing as legally cleared.

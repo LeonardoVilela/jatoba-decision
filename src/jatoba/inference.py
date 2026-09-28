@@ -6,6 +6,7 @@ import torch
 from .decision import Decision, encode_batch
 from .model import BACKBONE, BACKBONE_REVISION, JatobaModel
 
+RELEASE_REPO = "leoabreu288/jatoba-decision"
 # Per-primitive temperatures of the released v1.1 "M0" calibration. RAW (T = 1) is the primary output.
 M0_TEMPERATURES = {"choice": 1.3990257637762193, "noul": 1.2062703558373884, "score": 0.8972051812186663}
 
@@ -32,12 +33,27 @@ class Jatoba:
         self.truncation = truncation
 
     @classmethod
+    def from_pretrained(cls, repo: str | Path = RELEASE_REPO, revision: str | None = None, device: str = "cpu", **kwargs) -> "Jatoba":
+        """Load the released model (frozen encoder + decision head) from a Hugging Face repository or a local directory."""
+        from huggingface_hub import snapshot_download
+        from safetensors.torch import load_file
+        from transformers import AutoConfig, AutoModel, AutoTokenizer
+
+        path = Path(repo)
+        if not path.is_dir():
+            path = Path(snapshot_download(str(repo), revision=revision, allow_patterns=["*.json", "*.safetensors"]))
+        config = AutoConfig.from_pretrained(path)
+        if hasattr(config, "reference_compile"):
+            config.reference_compile = False
+        model = JatobaModel(AutoModel.from_config(config))
+        model.load_state_dict(load_file(path / "model.safetensors"), strict=True)
+        model.freeze_backbone()
+        return cls(model, AutoTokenizer.from_pretrained(path), device=device, **kwargs)
+
+    @classmethod
     def from_checkpoint(cls, head_path: str | Path, device: str = "cpu", backbone: str = BACKBONE,
                         revision: str | None = BACKBONE_REVISION, **kwargs) -> "Jatoba":
-        """Load the frozen backbone from the Hugging Face Hub and the decision head from `head_path`.
-
-        The trained JATOBÁ head is not distributed yet (pending a source-license review).
-        """
+        """Load the frozen backbone from the Hugging Face Hub and a decision-head state dict from `head_path`."""
         from transformers import AutoTokenizer
 
         model = JatobaModel.from_backbone(backbone, revision=revision)

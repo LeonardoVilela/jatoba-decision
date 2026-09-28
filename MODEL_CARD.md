@@ -2,7 +2,7 @@
 
 **Joint Assessment of Typed Options with BERT Architecture.** It was developed under the internal name NorDecision v1.1.
 
-> Model weights are temporarily withheld pending a source-license review. Code, evaluation methodology and aggregate results are available.
+> Weights: [huggingface.co/leoabreu288/jatoba-decision](https://huggingface.co/leoabreu288/jatoba-decision), CC BY-NC-SA 4.0 (non-commercial).
 
 ## Model
 
@@ -74,11 +74,13 @@ Full list: [`docs/limitations.md`](docs/limitations.md).
 
 ## Licensing status
 
-- **Code:** Apache-2.0.
-- **Weights:** withheld.
-  - Any weights derived from NorBERTo-base are subject to its CC-BY-NC-SA-4.0 terms.
-  - Several training sources have share-alike, non-commercial or unresolved terms: ASSIN 2 (no license stated), HateBR (conflicting statements), ToLD-Br (ShareAlike) and Community Alignment (consent documentation not public).
-  - The weights will be released only after that review, under terms compatible with all of them.
+- **Code:** Apache-2.0 (code only).
+- **Weights:** CC BY-NC-SA 4.0 on [Hugging Face](https://huggingface.co/leoabreu288/jatoba-decision). This follows the included NorBERTo-base encoder, which is CC BY-NC-SA 4.0. Commercial use is not permitted.
+- **Training data:** the datasets keep their own terms.
+  - HateBR is CC BY-NC 4.0 per its authors.
+  - ToLD-Br is CC BY-SA 4.0.
+  - ASSIN 2 was released publicly for the research community and used as a shared-task training resource, but no explicit corpus license was located.
+- **Release decision:** the weights were released under a documented human release decision that accepts the ASSIN 2 ambiguity; this is not a legal clearance. See [`docs/final_weight_license_audit.md`](docs/final_weight_license_audit.md).
 
 ## Citation
 

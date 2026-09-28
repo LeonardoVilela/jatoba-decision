@@ -64,7 +64,12 @@ See [`docs/limitations.md`](docs/limitations.md).
 
 ## Status
 
-**Model weights are temporarily withheld pending a source-license review.** Code, evaluation methodology and aggregate results are available. The frozen backbone, NorBERTo-base, is licensed CC-BY-NC-SA-4.0, and several training datasets have attribution, share-alike, non-commercial or unresolved terms. See [`MODEL_CARD.md`](MODEL_CARD.md) and [`benchmark/DATA_LICENSES.md`](benchmark/DATA_LICENSES.md).
+**Model weights are available on Hugging Face under CC BY-NC-SA 4.0: [huggingface.co/leoabreu288/jatoba-decision](https://huggingface.co/leoabreu288/jatoba-decision).**
+
+- **Non-commercial:** the license is non-commercial, because the included NorBERTo-base encoder is CC BY-NC-SA 4.0.
+- **Dataset terms:** the training datasets keep their own terms. ASSIN 2 was released for the research community without an explicit corpus license.
+
+See [`docs/final_weight_license_audit.md`](docs/final_weight_license_audit.md) and [`ATTRIBUTIONS.md`](ATTRIBUTIONS.md).
 
 ## Usage
 
@@ -75,7 +80,7 @@ pip install -e .
 ```python
 from jatoba import Jatoba
 
-model = Jatoba.from_checkpoint("jatoba-v1.1-head.pt")  # head weights not yet distributed
+model = Jatoba.from_pretrained()  # downloads leoabreu288/jatoba-decision
 
 result = model.decide(
     state="me acorda amanhã às sete, por favor",
@@ -94,7 +99,7 @@ Rules of the interface:
 - **Context length:** contexts longer than `max_context_tokens` (default 256, the trained regime) raise an error unless you pass an explicit `truncation="keep_start"` or `"keep_end"`. Truncation is reported in the result.
 - **Candidate length:** candidates are never truncated.
 
-[`examples/`](examples/) runs the full code path with a randomly initialized decision head, so it works without the withheld weights.
+[`examples/`](examples/) covers all three primitives and variable K.
 
 ## Evaluation suite
 
@@ -131,4 +136,8 @@ Experiments were conducted under the internal project name NorDecision before th
 
 ## License and citation
 
-Code in this repository: Apache-2.0 ([`LICENSE`](LICENSE)). Dataset licenses are separate, as is the license of the NorBERTo backbone. Please cite with [`CITATION.cff`](CITATION.cff) and cite the upstream datasets you rebuild.
+- **Code:** the code in this repository is licensed under Apache-2.0 ([`LICENSE`](LICENSE)), which covers the code only.
+- **Weights:** the model weights have a separate license, CC BY-NC-SA 4.0, on Hugging Face.
+- **Upstream terms:** the NorBERTo-base license still applies, and the source datasets retain their own licenses.
+
+Please cite with [`CITATION.cff`](CITATION.cff) and cite the upstream datasets you rebuild.

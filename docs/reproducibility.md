@@ -10,7 +10,7 @@
 | metrics of your own predictions | `python benchmark/evaluate.py --block … --predictions …` | uses `src/jatoba/metrics.py` |
 | the release checks | `python scripts/verify_release.py` | writes `release_check.json` |
 
-Evaluating JATOBÁ itself requires the head weights, which are withheld; see [`MODEL_CARD.md`](../MODEL_CARD.md).
+To evaluate JATOBÁ itself, load the released weights with `Jatoba.from_pretrained()` ([huggingface.co/leoabreu288/jatoba-decision](https://huggingface.co/leoabreu288/jatoba-decision)). The release is checked against the frozen checkpoint in [`hf_release_equivalence.json`](hf_release_equivalence.json).
 
 ## Pinned inputs
 

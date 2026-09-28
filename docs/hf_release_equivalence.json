@@ -1,0 +1,43 @@
+{
+ "status": "PASS",
+ "declared_tolerances": {
+  "T2_max_abs_logit": 1e-06,
+  "T3_max_abs_logit": 0.0001,
+  "argmax_flips": 0
+ },
+ "device": "cpu",
+ "tensor_identity": {
+  "head_tensors": 43,
+  "head_bitwise_equal": true,
+  "encoder_tensors": 134,
+  "encoder_bitwise_equal_to_norberto": true,
+  "norberto_source_dtypes": [
+   "torch.float32"
+  ],
+  "public_tensors": 177,
+  "public_parameters": 169102081,
+  "extra_or_missing_keys": []
+ },
+ "smoke_set": {
+  "PRISTINE": {
+   "decisions": 160,
+   "T2_max_abs_logit_vs_research_path": 0.0,
+   "T2_argmax_flips": 0,
+   "T3_max_abs_logit_vs_frozen_logits": 2.86102294921875e-05,
+   "T3_max_abs_prob_vs_frozen": 3.7052313969221373e-06,
+   "T3_argmax_flips": 0
+  },
+  "LEGACY_EXPOSED": {
+   "decisions": 160,
+   "T2_max_abs_logit_vs_research_path": 0.0,
+   "T2_argmax_flips": 0,
+   "T3_max_abs_logit_vs_frozen_logits": 4.76837158203125e-05,
+   "T3_max_abs_prob_vs_frozen": 5.431929559873705e-06,
+   "T3_argmax_flips": 0
+  }
+ },
+ "source_checkpoint_sha256": "78d22d758edcdf8529768d22730723d0a0edf17e84fc811f357ad8d150dd5882",
+ "public_safetensors_sha256": "0b8dbbbd3ccc5b24b0802c80cab3585252c2e5392fd7d6d6f3c7f6834091f8f2",
+ "norberto_revision": "db73446f89c96044863ea05a39f680524b84bccb",
+ "smoke_set_definition": "every k-th decision of the frozen v1.1 JATOBÁ-ID and legacy inference files, first 160 per block; truncation keep_start at 256 as in the frozen collator"
+}

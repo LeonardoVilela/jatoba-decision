@@ -1,22 +1,16 @@
 """Different numbers of candidates in one batch, and why candidate order does not matter.
 
-    python examples/variable_k.py [path/to/head.pt]
+    python examples/variable_k.py [hugging-face-repo-or-local-dir]
 """
 
 import sys
 
 import torch
-from transformers import AutoTokenizer
 
-from jatoba import Decision, Jatoba, JatobaModel
+from jatoba import Decision, Jatoba
 from jatoba.decision import encode_batch
-from jatoba.model import BACKBONE, BACKBONE_REVISION
 
-if len(sys.argv) > 1:
-    jatoba = Jatoba.from_checkpoint(sys.argv[1])
-else:
-    print("no head checkpoint given: random decision head, outputs are meaningless\n")
-    jatoba = Jatoba(JatobaModel.from_backbone(), AutoTokenizer.from_pretrained(BACKBONE, revision=BACKBONE_REVISION))
+jatoba = Jatoba.from_pretrained(*sys.argv[1:2])
 
 intents = {
     "alarm_set": "criar alarme: definir um alarme para um horário",

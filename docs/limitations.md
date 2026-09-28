@@ -51,6 +51,6 @@ Local timings (Apple silicon laptop, batch size 1) depend on hardware and must n
 
 ## Licensing
 
-- **Weights:** withheld pending a source-license review.
+- **Weights:** CC BY-NC-SA 4.0 on Hugging Face, non-commercial. ASSIN 2, a training source, has no explicit corpus license; see [`final_weight_license_audit.md`](final_weight_license_audit.md).
 - **Backbone:** NorBERTo-base is CC-BY-NC-SA-4.0, so derived weights can never be described as commercially unrestricted.
 - **Data:** see [`benchmark/DATA_LICENSES.md`](../benchmark/DATA_LICENSES.md).

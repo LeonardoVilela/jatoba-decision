@@ -37,7 +37,7 @@ def test_readme_headline_numbers_come_from_the_frozen_metrics():
 
 def test_readme_keeps_the_claim_boundaries():
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    assert "Model weights are temporarily withheld pending a source-license review." in readme
+    assert "Model weights are available on Hugging Face under CC BY-NC-SA 4.0" in readme
     assert "previously exposed data" in readme
     assert "chance" in readme
     assert "worse than a uniform guess" in readme

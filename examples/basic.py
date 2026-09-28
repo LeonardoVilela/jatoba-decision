@@ -1,23 +1,13 @@
 """The three primitives through the public API.
 
-    python examples/basic.py [path/to/head.pt]
-
-Without a head checkpoint the decision head is randomly initialised: the code path is real, the probabilities are not.
+    python examples/basic.py [hugging-face-repo-or-local-dir]
 """
 
 import sys
 
-from transformers import AutoTokenizer
+from jatoba import Jatoba
 
-from jatoba import Jatoba, JatobaModel
-from jatoba.model import BACKBONE, BACKBONE_REVISION
-
-if len(sys.argv) > 1:
-    model = Jatoba.from_checkpoint(sys.argv[1])
-else:
-    print("no head checkpoint given: random decision head, outputs are meaningless\n")
-    tokenizer = AutoTokenizer.from_pretrained(BACKBONE, revision=BACKBONE_REVISION)
-    model = Jatoba(JatobaModel.from_backbone(), tokenizer)
+model = Jatoba.from_pretrained(*sys.argv[1:2])
 
 choice = model.decide(
     state="me acorda amanhã às sete, por favor",

@@ -1,0 +1,261 @@
+{
+ "note": "headline numbers only; see tables/ for full rows, CIs and N/A accounting. No aggregate winner is defined.",
+ "criterion_G": "FAIL (unchanged)",
+ "pristine": {
+  "records_nd_laya": 15025,
+  "hierarchical_ce_eps": {
+   "NorDecision_RAW": 0.5079217570106181,
+   "NorDecision_M0": 0.5194914940305233,
+   "Laya_multilingual": 1.3813832776214263
+  },
+  "nd_minus_laya_ce_eps_ci95": [
+   -0.9062241536770378,
+   -0.8410789490997107
+  ],
+  "laya_exceptions_top1": {
+   "inferbr_nli3": {
+    "NorDecision": 0.7888563049853372,
+    "Laya": 0.8099706744868035
+   }
+  },
+  "gliner_three_model_hier_ce_eps": {
+   "NorDecision_RAW": 0.5079217570106181,
+   "NorDecision_M0": 0.5194914940305233,
+   "Laya_multilingual": 1.3813832776214263,
+   "GLiNER": 1.2907891097596347
+  },
+  "nd_minus_gliner_ce_eps_ci95": [
+   -0.5538249731469932,
+   -0.5074153796119829
+  ]
+ },
+ "legacy_exposed": {
+  "label": "LEGACY / previously exposed",
+  "hierarchical_ce_eps": {
+   "NorDecision_RAW": 0.5163243064158797,
+   "NorDecision_M0": 0.5214755769065664,
+   "Laya_multilingual": 0.9439703099253461
+  },
+  "laya_exceptions_top1": {
+   "assin2_entailment": {
+    "NorDecision": 0.8519012675116745,
+    "Laya": 0.875250166777852
+   }
+  }
+ },
+ "massive_top1_vs_k_LEGACY": {
+  "2": {
+   "NorDecision": 0.9889693209238194,
+   "Laya_multilingual": 0.8541882109617374,
+   "GLiNER": 0.8528093760772147,
+   "NorDecision_on_gliner_subset": 0.9889693209238194,
+   "gliner_coverage": "COMPLETE"
+  },
+  "4": {
+   "NorDecision": 0.9655291278869356,
+   "Laya_multilingual": 0.7283695277490521,
+   "GLiNER": 0.7200965184419166,
+   "NorDecision_on_gliner_subset": 0.9655291278869356,
+   "gliner_coverage": "COMPLETE"
+  },
+  "5": {
+   "NorDecision": 0.9551878662530162,
+   "Laya_multilingual": 0.6894174422612892,
+   "GLiNER": 0.6632195794553603,
+   "NorDecision_on_gliner_subset": 0.9551878662530162,
+   "gliner_coverage": "COMPLETE"
+  },
+  "6": {
+   "NorDecision": 0.9479489831092727,
+   "Laya_multilingual": 0.661496035849707,
+   "GLiNER": 0.6194415718717684,
+   "NorDecision_on_gliner_subset": 0.9479489831092727,
+   "gliner_coverage": "COMPLETE"
+  },
+  "8": {
+   "NorDecision": 0.9351947604274388,
+   "Laya_multilingual": 0.5989655172413794,
+   "GLiNER": 0.5511892450879007,
+   "NorDecision_on_gliner_subset": 0.9351947604274388,
+   "gliner_coverage": "COMPLETE"
+  },
+  "10": {
+   "NorDecision": 0.921406411582213,
+   "Laya_multilingual": 0.5548733691481197,
+   "GLiNER": 0.5025853154084798,
+   "NorDecision_on_gliner_subset": 0.921406411582213,
+   "gliner_coverage": "COMPLETE"
+  },
+  "16": {
+   "NorDecision": 0.8927955877283695,
+   "Laya_multilingual": "N/A (not exact)",
+   "GLiNER": 0.4215787659427784,
+   "NorDecision_on_gliner_subset": 0.8927955877283695,
+   "gliner_coverage": "COMPLETE"
+  },
+  "24": {
+   "NorDecision": 0.8624612202688728,
+   "Laya_multilingual": "N/A (not exact)",
+   "GLiNER": 0.3653912443984833,
+   "NorDecision_on_gliner_subset": 0.8624612202688728,
+   "gliner_coverage": "COMPLETE"
+  },
+  "32": {
+   "NorDecision": 0.8393657359531196,
+   "Laya_multilingual": "N/A (not exact)",
+   "GLiNER": 0.3474663908996898,
+   "NorDecision_on_gliner_subset": 0.8393657359531196,
+   "gliner_coverage": "COMPLETE"
+  },
+  "48": {
+   "NorDecision": 0.8076525336091003,
+   "Laya_multilingual": "N/A (not exact)",
+   "GLiNER": 0.31161668390210273,
+   "NorDecision_on_gliner_subset": 0.8076525336091003,
+   "gliner_coverage": "COMPLETE"
+  },
+  "60": {
+   "NorDecision": 0.7845570492933471,
+   "Laya_multilingual": "N/A (not exact)",
+   "GLiNER": 0.28921061702861084,
+   "NorDecision_on_gliner_subset": 0.7845570492933471,
+   "gliner_coverage": "COMPLETE"
+  }
+ },
+ "normas_complete_1024": {
+  "pairs": 354,
+  "queries": 46,
+  "models": {
+   "NorDecision_RAW": {
+    "ce_epsilon": 1.700700382785382,
+    "ndcg@10": 0.7165861798673975,
+    "ndcg_ci": [
+     0.6453277754972624,
+     0.7865401077122987
+    ]
+   },
+   "NorDecision_M0": {
+    "ce_epsilon": 1.7952583027491171,
+    "ndcg@10": 0.7135264626612133,
+    "ndcg_ci": [
+     0.6429033687838058,
+     0.7836819055320626
+    ]
+   },
+   "Jev": {
+    "ce_epsilon": 1.498332034562845,
+    "ndcg@10": 0.8581114853512009,
+    "ndcg_ci": [
+     0.7903137299591069,
+     0.9185810143717418
+    ]
+   },
+   "Laya_multilingual": {
+    "ce_epsilon": 3.7922600310180665,
+    "ndcg@10": 0.7139733539916254,
+    "ndcg_ci": [
+     0.6453014623740502,
+     0.7823083540325736
+    ]
+   },
+   "B0": {
+    "ce_epsilon": 1.0986122886681096,
+    "ndcg@10": 0.711887312763587,
+    "ndcg_ci": [
+     0.6639994901995228,
+     0.760225156730353
+    ]
+   },
+   "BM25_frozen": {
+    "ce_epsilon": null,
+    "ndcg@10": 0.8288467581562798,
+    "ndcg_ci": [
+     0.7668800708124746,
+     0.8842575159085382
+    ]
+   }
+  },
+  "jev_minus_bm25_ndcg10": {
+   "point": 0.029264727194920872,
+   "ci95": [
+    -0.004888235563807261,
+    0.06586155974820872
+   ],
+   "queries_both_defined": 35
+  },
+  "nd_minus_jev_ndcg10": {
+   "point": -0.14152530548380335,
+   "ci95": [
+    -0.21082473345799552,
+    -0.07616554243946455
+   ],
+   "queries_both_defined": 35
+  },
+  "interpretation": "ranking competence != probabilistic decision quality; all probabilistic models worse than uniform in eps-CE; Jev ~ BM25 (CI crosses 0); GLiNER N/A"
+ },
+ "jevbench_public": {
+  "RAW/ALL": {
+   "accuracy": 0.329004329004329,
+   "chance": 0.31760461760461756,
+   "brier": 0.9157784975035004,
+   "ece": 0.37084545848498995
+  },
+  "RAW/easy": {
+   "accuracy": 0.4166666666666667,
+   "chance": 0.284375,
+   "brier": 0.7338002460762109,
+   "ece": 0.2758323301520604
+  },
+  "RAW/hard": {
+   "accuracy": 0.3153153153153153,
+   "chance": 0.33618618618618623,
+   "brier": 0.9112505563043455,
+   "ece": 0.35378458086720793
+  },
+  "RAW/original": {
+   "accuracy": 0.2916666666666667,
+   "chance": 0.3111111111111111,
+   "brier": 1.0440779078037237,
+   "ece": 0.46048973036769036
+  },
+  "M0/ALL": {
+   "accuracy": 0.329004329004329,
+   "chance": 0.31760461760461756,
+   "brier": 0.8578007063528381,
+   "ece": 0.31779527393829815
+  },
+  "M0/easy": {
+   "accuracy": 0.4166666666666667,
+   "chance": 0.284375,
+   "brier": 0.6818222027216052,
+   "ece": 0.2395189007896653
+  },
+  "M0/hard": {
+   "accuracy": 0.3153153153153153,
+   "chance": 0.33618618618618623,
+   "brier": 0.8593192917828596,
+   "ece": 0.3026668337176952
+  },
+  "M0/original": {
+   "accuracy": 0.2916666666666667,
+   "chance": 0.3111111111111111,
+   "brier": 0.9727785562357104,
+   "ece": 0.41554997930465937
+  }
+ },
+ "matched_efficiency": {
+  "nordecision": {
+   "p50_ms": 40.0370834977366,
+   "p95_ms": 60.33105169772169,
+   "decisions_per_s": 23.500870464586963,
+   "peak_mb": 2268.923843383789
+  },
+  "laya_multilingual": {
+   "p50_ms": 25.104146014200523,
+   "p95_ms": 34.0098854736425,
+   "decisions_per_s": 38.932902734184445,
+   "peak_mb": 4986.379486083984
+  }
+ },
+ "jev_status": "PARTIAL (hosted API instability; frozen stop policy); Juris Jev subset NOT comparable"
+}

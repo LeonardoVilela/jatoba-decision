@@ -1,0 +1,136 @@
+{
+ "artifact": "julia_permutation_diagnostic",
+ "subset_sha256": "7bb86fc601eb0e744c2d241eb192cec23b386e30569b1a20a04eea0c776ac5f0",
+ "note": "diagnostic only; Julia main results are single canonical order (no permutation averaging)",
+ "julia": {
+  "S1_PRISTINE_choice": {
+   "decisions": 22,
+   "comparisons": 88,
+   "argmax_flip_rate": 0.45454545454545453,
+   "mean_max_abs_prob_dev": 0.27902010304917807,
+   "max_abs_prob_dev": 0.7086667973486693,
+   "mean_js_divergence": 0.07757059878845028,
+   "max_js_divergence": 0.2782762183349479,
+   "top1_canonical": 0.2727272727272727,
+   "top1_per_order": [
+    0.2727272727272727,
+    0.3181818181818182,
+    0.2727272727272727,
+    0.2727272727272727,
+    0.4090909090909091
+   ],
+   "top1_spread_across_orders": 0.1363636363636364,
+   "mean_within_decision_ce_std": 0.6303812242338697
+  },
+  "S2_K10": {
+   "decisions": 40,
+   "comparisons": 160,
+   "argmax_flip_rate": 0.6,
+   "mean_max_abs_prob_dev": 0.44874724371171926,
+   "max_abs_prob_dev": 0.9707956363304951,
+   "mean_js_divergence": 0.22015613180581348,
+   "max_js_divergence": 0.6465291419918706,
+   "top1_canonical": 0.2,
+   "top1_per_order": [
+    0.2,
+    0.225,
+    0.225,
+    0.125,
+    0.175
+   ],
+   "top1_spread_across_orders": 0.1,
+   "mean_within_decision_ce_std": 1.13232957542781
+  },
+  "S2_K16": {
+   "decisions": 40,
+   "comparisons": 160,
+   "argmax_flip_rate": 0.6,
+   "mean_max_abs_prob_dev": 0.4013692145004729,
+   "max_abs_prob_dev": 0.871787975379657,
+   "mean_js_divergence": 0.209577832052059,
+   "max_js_divergence": 0.6294224237436618,
+   "top1_canonical": 0.225,
+   "top1_per_order": [
+    0.225,
+    0.275,
+    0.25,
+    0.175,
+    0.175
+   ],
+   "top1_spread_across_orders": 0.10000000000000003,
+   "mean_within_decision_ce_std": 1.004116188372048
+  },
+  "S2_K2": {
+   "decisions": 40,
+   "comparisons": 40,
+   "argmax_flip_rate": 0.2,
+   "mean_max_abs_prob_dev": 0.1575148584560746,
+   "max_abs_prob_dev": 0.9032021298106125,
+   "mean_js_divergence": 0.047055442160030034,
+   "max_js_divergence": 0.5023801360343856,
+   "top1_canonical": 0.725,
+   "top1_per_order": [
+    0.725,
+    0.775
+   ],
+   "top1_spread_across_orders": 0.050000000000000044,
+   "mean_within_decision_ce_std": 0.2959113169659663
+  },
+  "S2_K4": {
+   "decisions": 40,
+   "comparisons": 145,
+   "argmax_flip_rate": 0.35172413793103446,
+   "mean_max_abs_prob_dev": 0.279566859361959,
+   "max_abs_prob_dev": 0.9763554026053813,
+   "mean_js_divergence": 0.10192668196212859,
+   "max_js_divergence": 0.634192156339051,
+   "top1_canonical": 0.675,
+   "top1_per_order": [
+    0.675,
+    0.575,
+    0.6
+   ],
+   "top1_spread_across_orders": 0.10000000000000009,
+   "mean_within_decision_ce_std": 0.5686877191491698
+  },
+  "S2_K8": {
+   "decisions": 40,
+   "comparisons": 160,
+   "argmax_flip_rate": 0.38125,
+   "mean_max_abs_prob_dev": 0.3278854716626958,
+   "max_abs_prob_dev": 0.895055420102574,
+   "mean_js_divergence": 0.14208518831248257,
+   "max_js_divergence": 0.5160925968284484,
+   "top1_canonical": 0.5,
+   "top1_per_order": [
+    0.5,
+    0.5,
+    0.5,
+    0.4,
+    0.5
+   ],
+   "top1_spread_across_orders": 0.09999999999999998,
+   "mean_within_decision_ce_std": 0.780589467031621
+  }
+ },
+ "nordecision_v11_same_S1_records_same_orders": {
+  "decisions": 22,
+  "comparisons": 88,
+  "argmax_flip_rate": 0.0,
+  "mean_max_abs_prob_dev": 8.55878079568108e-09,
+  "max_abs_prob_dev": 4.227611383189611e-08,
+  "mean_js_divergence": 2.2157388013747505e-16,
+  "max_js_divergence": 2.041328653057198e-15,
+  "top1_canonical": 0.8181818181818182,
+  "top1_per_order": [
+   0.8181818181818182,
+   0.8181818181818182,
+   0.8181818181818182,
+   0.8181818181818182,
+   0.8181818181818182
+  ],
+  "top1_spread_across_orders": 0.0,
+  "mean_within_decision_ce_std": 2.238040794049602e-08
+ },
+ "k20": "N/A: no frozen Julia-exact CHOICE decision with 17-20 candidates"
+}

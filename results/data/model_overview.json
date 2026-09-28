@@ -1,0 +1,20 @@
+{
+ "note": "Parameter counts: JATOBÁ from the model definition; Laya multilingual counted from its safetensors; GLiNER2.5-multi-Decide and Julia-1 from the Hugging Face safetensors metadata at the evaluated revisions.",
+ "rows": [
+  {"model": "JATOBÁ v1.1", "parameters": "169.1M (20.1M trainable; frozen NorBERTo-base)", "language": "PT-BR", "primitives": "NOUL, CHOICE, SCORE",
+   "native_max_k": "no fixed limit; evaluated up to 60", "order_invariance": "permutation-equivariant by construction; 0 flips measured",
+   "output": "full softmax", "context": "256 tokens in training/evaluation; inference path runs to 8,192 (semantics not validated)"},
+  {"model": "Laya multilingual (convaiinnovations/laya @ 55cf4c4e)", "parameters": "321.9M", "language": "multilingual", "primitives": "NOUL, CHOICE, SCORE",
+   "native_max_k": "bounded by its head token budget (N/A from K = 16 on MASSIVE)", "order_invariance": "not measured",
+   "output": "full distribution", "context": "shared token budget; decisions that would be cut are N/A"},
+  {"model": "GLiNER2.5-multi-Decide (fastino @ 6bc1d43d)", "parameters": "287.4M", "language": "multilingual", "primitives": "CHOICE, SCORE (NOUL as yes/no)",
+   "native_max_k": "no fixed limit; evaluated up to 60", "order_invariance": "not measured systematically (unchanged on smoke items)",
+   "output": "softmax over declared labels", "context": "4,096 sub-words"},
+  {"model": "Julia-1 (SupersonicLabs @ a85b1273)", "parameters": "144.3M", "language": "multilingual", "primitives": "NOUL, CHOICE, SCORE",
+   "native_max_k": "2-20", "order_invariance": "order-sensitive: 20-60% top-1 flips under reordering",
+   "output": "full softmax", "context": "8,192 tokens; options at most 48 tokens"},
+  {"model": "Jev (typesafe-ai/jev, hosted API)", "parameters": "undisclosed", "language": "multilingual", "primitives": "NOUL, CHOICE, SCORE",
+   "native_max_k": "not documented", "order_invariance": "not measured", "output": "probabilities rounded to 0.01",
+   "context": "hosted; coverage in this study PARTIAL"}
+ ]
+}

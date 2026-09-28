@@ -1,0 +1,210 @@
+{
+ "title": "PRISTINE per-task comparison (common NorDecision/Laya-multilingual exact set)",
+ "records": 15025,
+ "decisions": 15711,
+ "jev_coverage": 0,
+ "hierarchical_ce_eps": {
+  "NorDecision_RAW": 0.5079217570106181,
+  "NorDecision_M0": 0.5194914940305233,
+  "Laya_multilingual": 1.3813832776214263
+ },
+ "bootstrap_group_95ci": {
+  "resamples": 10000,
+  "seed": 20261202,
+  "records": 15025,
+  "models": {
+   "NorDecision_RAW": {
+    "hierarchical_ce_epsilon_ci95": [
+     0.4895796082663537,
+     0.5264393641975113
+    ],
+    "top1_ci95": [
+     0.8428493413646189,
+     0.8532018655557613
+    ]
+   },
+   "NorDecision_M0": {
+    "hierarchical_ce_epsilon_ci95": [
+     0.5048747235796327,
+     0.5341950528452215
+    ],
+    "top1_ci95": [
+     0.8428493413646189,
+     0.8532018655557613
+    ]
+   },
+   "Laya_multilingual": {
+    "hierarchical_ce_epsilon_ci95": [
+     1.3497060766883984,
+     1.4133561369968688
+    ],
+    "top1_ci95": [
+     0.16487949850635572,
+     0.18195207101660088
+    ]
+   }
+  },
+  "contrasts": {
+   "NorDecision_RAW - Laya_multilingual": {
+    "hierarchical_ce_epsilon_ci95": [
+     -0.9062241536770378,
+     -0.8410789490997107
+    ],
+    "top1_ci95": [
+     0.6635461831035334,
+     0.6855803754904133
+    ]
+   }
+  }
+ },
+ "notes": [
+  "epsilon-CE: q=max(p,0.005) renormalized for EVERY model; Brier/top-1 on original probabilities",
+  "Laya exceptions kept visible: InferBR and ASSIN2 entailment top-1 are higher for Laya multilingual",
+  "Laya typed-decisions is SECONDARY (decision-specialized checkpoint), on its own exact subset",
+  "GLiNER2.5-multi-Decide columns: same ND/Laya/GLiNER common exact set (gliner_comparison.json three_model); package-native softmax",
+  "Community Alignment: Laya N/A (does not fit exactly)",
+  "Jev: N/A (partial operational coverage)"
+ ],
+ "rows": [
+  {
+   "task": "anger_intensity",
+   "records_nd_laya_ml": 2220,
+   "NorDecision_RAW_ce_eps": 0.7846720884069938,
+   "NorDecision_RAW_brier": 0.42985443472075774,
+   "NorDecision_RAW_top1": 0.690990990990991,
+   "NorDecision_M0_ce_eps": 0.780301994776434,
+   "NorDecision_M0_brier": 0.4279113698246256,
+   "NorDecision_M0_top1": 0.690990990990991,
+   "Laya_multilingual_ce_eps": 2.000529394477894,
+   "Laya_multilingual_brier": 0.9460095157522522,
+   "Laya_multilingual_top1": 0.1518018018018018,
+   "Laya_typed_SECONDARY_top1": 0.11081081081081082,
+   "Laya_typed_SECONDARY_records": 2220,
+   "GLiNER_top1": 0.13018018018018018,
+   "GLiNER_ce_eps": 1.5341674946558155,
+   "GLiNER_brier": 0.8222430034795144,
+   "Jev": "N/A (partial operational coverage)",
+   "Community_alignment_Laya": null
+  },
+  {
+   "task": "disgust_intensity",
+   "records_nd_laya_ml": 2220,
+   "NorDecision_RAW_ce_eps": 0.16810227989202542,
+   "NorDecision_RAW_brier": 0.06587208155483144,
+   "NorDecision_RAW_top1": 0.968018018018018,
+   "NorDecision_M0_ce_eps": 0.16083476593362842,
+   "NorDecision_M0_brier": 0.06396790537057542,
+   "NorDecision_M0_top1": 0.968018018018018,
+   "Laya_multilingual_ce_eps": 2.5834866354512505,
+   "Laya_multilingual_brier": 1.124867229954955,
+   "Laya_multilingual_top1": 0.01756756756756757,
+   "Laya_typed_SECONDARY_top1": 0.010810810810810811,
+   "Laya_typed_SECONDARY_records": 2220,
+   "GLiNER_top1": 0.09774774774774775,
+   "GLiNER_ce_eps": 1.5846806301965586,
+   "GLiNER_brier": 0.8433646472863584,
+   "Jev": "N/A (partial operational coverage)",
+   "Community_alignment_Laya": null
+  },
+  {
+   "task": "fear_intensity",
+   "records_nd_laya_ml": 2220,
+   "NorDecision_RAW_ce_eps": 0.26436802913678026,
+   "NorDecision_RAW_brier": 0.11726640336970061,
+   "NorDecision_RAW_top1": 0.9373873873873874,
+   "NorDecision_M0_ce_eps": 0.2588139970579076,
+   "NorDecision_M0_brier": 0.11549568268654155,
+   "NorDecision_M0_top1": 0.9373873873873874,
+   "Laya_multilingual_ce_eps": 2.1483308920505038,
+   "Laya_multilingual_brier": 1.0224437113423424,
+   "Laya_multilingual_top1": 0.05675675675675676,
+   "Laya_typed_SECONDARY_top1": 0.015765765765765764,
+   "Laya_typed_SECONDARY_records": 2220,
+   "GLiNER_top1": 0.11711711711711711,
+   "GLiNER_ce_eps": 1.5104589930670171,
+   "GLiNER_brier": 0.8103845141065538,
+   "Jev": "N/A (partial operational coverage)",
+   "Community_alignment_Laya": null
+  },
+  {
+   "task": "inferbr_nli3",
+   "records_nd_laya_ml": 1705,
+   "NorDecision_RAW_ce_eps": 0.5572803833644968,
+   "NorDecision_RAW_brier": 0.31199848381899126,
+   "NorDecision_RAW_top1": 0.7888563049853372,
+   "NorDecision_M0_ce_eps": 0.5893694358709756,
+   "NorDecision_M0_brier": 0.3272079224516808,
+   "NorDecision_M0_top1": 0.7888563049853372,
+   "Laya_multilingual_ce_eps": 0.623725855953412,
+   "Laya_multilingual_brier": 0.30255892409384166,
+   "Laya_multilingual_top1": 0.8099706744868035,
+   "Laya_typed_SECONDARY_top1": 0.5947214076246334,
+   "Laya_typed_SECONDARY_records": 1705,
+   "GLiNER_top1": 0.46510263929618767,
+   "GLiNER_ce_eps": 1.0572060854706844,
+   "GLiNER_brier": 0.6359311298423486,
+   "Jev": "N/A (partial operational coverage)",
+   "Community_alignment_Laya": null
+  },
+  {
+   "task": "joy_intensity",
+   "records_nd_laya_ml": 2220,
+   "NorDecision_RAW_ce_eps": 0.7159117236748274,
+   "NorDecision_RAW_brier": 0.38269979424203093,
+   "NorDecision_RAW_top1": 0.7653153153153153,
+   "NorDecision_M0_ce_eps": 0.6957757832146151,
+   "NorDecision_M0_brier": 0.3722072103187846,
+   "NorDecision_M0_top1": 0.7653153153153153,
+   "Laya_multilingual_ce_eps": 1.715770160013605,
+   "Laya_multilingual_brier": 0.8909344616756758,
+   "Laya_multilingual_top1": 0.17612612612612613,
+   "Laya_typed_SECONDARY_top1": 0.11891891891891893,
+   "Laya_typed_SECONDARY_records": 2220,
+   "GLiNER_top1": 0.17972972972972973,
+   "GLiNER_ce_eps": 1.4723325395946665,
+   "GLiNER_brier": 0.7915180231616834,
+   "Jev": "N/A (partial operational coverage)",
+   "Community_alignment_Laya": null
+  },
+  {
+   "task": "sadness_intensity",
+   "records_nd_laya_ml": 2220,
+   "NorDecision_RAW_ce_eps": 0.5344345954882926,
+   "NorDecision_RAW_brier": 0.26644212921482546,
+   "NorDecision_RAW_top1": 0.8423423423423423,
+   "NorDecision_M0_ce_eps": 0.5203776175701451,
+   "NorDecision_M0_brier": 0.25991494692419237,
+   "NorDecision_M0_top1": 0.8423423423423423,
+   "Laya_multilingual_ce_eps": 1.951378787823866,
+   "Laya_multilingual_brier": 0.9664258836531532,
+   "Laya_multilingual_top1": 0.11486486486486487,
+   "Laya_typed_SECONDARY_top1": 0.057207207207207206,
+   "Laya_typed_SECONDARY_records": 2220,
+   "GLiNER_top1": 0.12837837837837837,
+   "GLiNER_ce_eps": 1.501114153311041,
+   "GLiNER_brier": 0.8062607105004432,
+   "Jev": "N/A (partial operational coverage)",
+   "Community_alignment_Laya": null
+  },
+  {
+   "task": "surprise_intensity",
+   "records_nd_laya_ml": 2220,
+   "NorDecision_RAW_ce_eps": 0.30028678442240636,
+   "NorDecision_RAW_brier": 0.13550677213532275,
+   "NorDecision_RAW_top1": 0.9292792792792792,
+   "NorDecision_M0_ce_eps": 0.2945065845831838,
+   "NorDecision_M0_brier": 0.1333861766874016,
+   "NorDecision_M0_top1": 0.9292792792792792,
+   "Laya_multilingual_ce_eps": 2.4015844279256457,
+   "Laya_multilingual_brier": 1.0863241636621621,
+   "Laya_multilingual_top1": 0.033783783783783786,
+   "Laya_typed_SECONDARY_top1": 0.02252252252252252,
+   "Laya_typed_SECONDARY_records": 2220,
+   "GLiNER_top1": 0.11531531531531532,
+   "GLiNER_ce_eps": 1.534077527496736,
+   "GLiNER_brier": 0.8206867732763502,
+   "Jev": "N/A (partial operational coverage)",
+   "Community_alignment_Laya": null
+  }
+ ]
+}

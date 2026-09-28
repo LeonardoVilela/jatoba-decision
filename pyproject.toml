@@ -33,3 +33,6 @@ target-version = "py310"
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]
 ignore = ["B905"]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/make_launch_figure.py" = ["E501"]  # the caption is a Markdown template

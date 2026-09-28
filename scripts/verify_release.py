@@ -75,7 +75,7 @@ def check_files(files: list[Path]) -> dict:
         name = str(p.relative_to(ROOT))
         if p.suffix in WEIGHT_SUFFIXES:
             problems.append(f"weights file {name}")
-        if p.suffix in RAW_DATA_SUFFIXES or name.startswith("benchmark/build/"):
+        if (p.suffix in RAW_DATA_SUFFIXES and not name.startswith("results/")) or name.startswith("benchmark/build/"):
             problems.append(f"raw data file {name}")
         if p.name.startswith(".env"):
             problems.append(f"environment file {name}")

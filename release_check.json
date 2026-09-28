@@ -3,7 +3,7 @@
  "checks": {
   "files": {
    "ok": true,
-   "files": 80,
+   "files": 87,
    "problems": []
   },
   "secrets": {
